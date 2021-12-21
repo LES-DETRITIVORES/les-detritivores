@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700;900&display=swap");
+@import url("//fonts.cdnfonts.com/css/sf-ui-display");
+@layer utilities {
+  .content {
+    content: "";
+  }
+}
+html {
+  @apply overflow-x-hidden;
+}
+body {
+  @apply bg-white dark:bg-neutral-900 overflow-x-hidden transition w-screen font-fira;
+}
+p {
+  @apply font-sf-ui;
+}
+span {
+  @apply text-xl font-bold font-sf-ui;
+}
+h1 {
+  font-family: "Fira Sans", sans-serif;
+}
+h1:after,
+h1:before {
+  @apply block m-0 content;
+}
+.jRFJkP,
+.cNNJIt,
+.lcUbOd,
+.fVgyLU,
+.fViXLK,
+.bBjxWM {
+  @apply !hidden !shadow-none;
+}
+.eaptOe,
+.gpDNSX {
+  @apply !shadow-none;
+}
+::-webkit-scrollbar {
+  @apply !hidden;
+}
+::-webkit-scrollbar-button {
+  @apply !hidden;
+}
+::-webkit-scrollbar-track {
+  @apply !hidden;
+}
+::-webkit-scrollbar-track-piece {
+  @apply !hidden;
+}
+::-webkit-scrollbar-thumb {
+  @apply !hidden;
+}
+::-webkit-scrollbar-corner {
+  @apply !hidden;
+}
+.fPDpuU {
+  @apply !m-0;
+}
+.fancy {
+  @apply w-20 border-solid border-t-4;
+}
+.SfQLQb-QClCJf-giiMnc .i4ewOd-pzNkMb-QClCJf-giiMnc-xJzy8c {
+  @apply hidden;
+}
+.fancy-title {
+  @apply w-16 md:w-24 border-solid border-t-4;
+}
+::filter {
+  @apply !rounded-lg;
+}
+img {
+  @apply transition duration-300;
+}
+#start {
+  @apply bg-greenDDTV bg-gradient-to-r from-greenDDTV to-greenDDTV dark:bg-gradient-to-r dark:from-orangeDDTV dark:to-orangeDDTV h-48 border-t-0 text-white pb-1;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 42%, 0% 100%) !important;
+  clip-path: polygon(0 0, 100% 0%, 100% 42%, 0% 100%) !important;
+}
+
+#footer {
+  @apply bg-greenDDTV bg-gradient-to-r from-greenDDTV to-greenDDTV dark:bg-gradient-to-r dark:from-orangeDDTV dark:to-orangeDDTV md:w-auto border-t-0 text-white;
+  -webkit-clip-path: polygon(100% 3%, 0 100%, 100% 100%);
+  clip-path: polygon(100% 3%, 0 100%, 100% 100%);
+}
+.bg-growing-underline-green {
+  background-size: 7% 0.15em;
+  background-position: 62%;
+  @apply transition-all duration-200 bg-gradient-to-t from-greenDDTV to-greenDDTV dark:bg-gradient-to-t dark:from-orangeDDTV dark:to-orangeDDTV bg-no-repeat -rotate-1 !mt-1 !p-0 !h-2;
+}
+@media only screen and (max-width: 600px) {
+  .bg-growing-underline-green {
+    background-size: 18% 0.15em;
+    background-position: 79% 88%;
+  }
+}
+.bg-growing-underline-orange {
+  background-size: 17% 0.2em;
+  background-position: 100%;
+  @apply transition-all duration-200 bg-gradient-to-t from-orangeDDTV to-orangeDDTV bg-no-repeat -rotate-1 !mt-1 !p-0 !h-2;
+}
+.bg-growing-underline-black {
+  background-size: 6rem 0.2em;
+  background-position: 13rem;
+  @apply transition-all duration-200 bg-gradient-to-t from-black to-black bg-no-repeat -rotate-1 !mt-1 !p-0 !h-2;
+}
+.bg-growing-underline-orange-contact {
+  background-size: 5% 0.2em;
+  background-position: 55%;
+  @apply transition-all duration-200 bg-gradient-to-t from-orangeDDTV to-orangeDDTV bg-no-repeat -rotate-3 !mt-1 !p-0 !h-2;
+}
+#nprogress .bar {
+  @apply !bg-white;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+}
+
+#nprogress .spinner-icon {
+  @apply !border-l-white !border-t-white;
+}
+
+.slider {
+  @apply flex;
+}
+
+.slider::before,
+.slider::after {
+  @apply absolute z-10 content;
+}
+.slider::after {
+  @apply right-0 top-0 rotate-180;
+}
+
+.slider::before {
+  @apply left-0 top-0;
+}
+.slide-track {
+  @apply animate-scroll flex justify-center space-x-2 items-center max-h-36 max-w-max;
+}
+.width-pessac {
+  @apply !w-screen;
+}
+.width {
+  @apply !w-36;
+}
+.height {
+  @apply !h-36;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
