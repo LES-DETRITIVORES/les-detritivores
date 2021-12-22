@@ -195,7 +195,7 @@ const Collecte: NextPage = () => {
                 </div>
               )}
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 hidden">
               <h1 className="text-2xl font-medium text-center ">
                 Où intervenons-nous ?
               </h1>
