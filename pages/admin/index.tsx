@@ -330,10 +330,10 @@ function Index() {
                       </div>
                     </div>
                     {all.length > 1 && (
-                      <div className="h-1 w-48 bg-gray-300 mt-5">
+                      <div className="h-1.5 rounded-lg w-48 bg-gray-300 mt-5">
                         <div
                           style={{ width: `${all.length}%` }}
-                          className={`h-full transition ${
+                          className={`h-full transition-colors rounded-lg duration-100 ${
                             all.length < 40 ? "bg-red-600" : "bg-green-600"
                           }`}
                         />
