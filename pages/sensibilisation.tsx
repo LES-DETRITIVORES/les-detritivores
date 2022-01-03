@@ -57,16 +57,16 @@ const Sensibilisation: NextPage = () => {
               ) : (
                 <>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                 </>
               )}
@@ -84,7 +84,7 @@ const Sensibilisation: NextPage = () => {
               {data ? (
                 <>
                   <div className="space-y-4">
-                    <h1 className="text-left pb-2 md:text-4xl lg:text-5xl text-2xl font-bold text-orangeDDTV -rotate-2">
+                    <h1 className="text-left pb-2 md:text-4xl lg:text-5xl text-2xl font-bold text-orangeDTTV -rotate-2">
                       {data?.content.titleSectionSensibilisation}
                       <div className="bg-growing-underline-black hidden">
                         &nbsp;
@@ -109,7 +109,7 @@ const Sensibilisation: NextPage = () => {
                 </>
               ) : (
                 <div className="space-y-4">
-                  <h1 className="text-left pb-2 md:text-4xl lg:text-5xl text-2xl font-bold text-orangeDDTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 h-20 rounded-lg animate-pulse"></h1>
+                  <h1 className="text-left pb-2 md:text-4xl lg:text-5xl text-2xl font-bold text-orangeDTTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 h-20 rounded-lg animate-pulse"></h1>
                   <br />
                   <div className="space-y-4">
                     <p className="text-xl sm:text-md font-bold bg-neutral-100 dark:bg-neutral-800 h-20 rounded-lg animate-pulse"></p>

@@ -9,7 +9,6 @@ import { StoryBlok } from "libs/types";
 import { richText } from "libs/storyblok";
 
 import { Icons } from "components/icons";
-
 const Devis: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -86,7 +85,7 @@ const Devis: NextPage = () => {
       setSuccess(true);
     }
 
-    fetch(`https://api-ddtv.herokuapp.com/send`, {
+    fetch(`https://api-DTTV.herokuapp.com/send`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -173,7 +172,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Vous êtes:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onWhoChange}
                   />
@@ -183,7 +182,7 @@ const Devis: NextPage = () => {
                     Nombre de repas servis par jour:*
                   </label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onNumberChange}
                   />
@@ -191,7 +190,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Structure:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onStructureChange}
                   />
@@ -199,7 +198,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Fonction:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onFonctionChange}
                   />
@@ -207,7 +206,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Nom:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onNameChange}
                   />
@@ -215,7 +214,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Prénom:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onLastNameChange}
                   />
@@ -223,7 +222,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Email:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onMailChange}
                   />
@@ -231,7 +230,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Téléphone:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
                     autoComplete="off"
                     onChange={onPhoneChange}
                   />
@@ -239,13 +238,13 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col justify-center">
                   <label className="font-light">Message:*</label>
                   <textarea
-                    className="w-full h-auto px-3 py-2 focus:outline-none bg-white dark:bg-neutral-900 border-2 border-orangeDDTV w-26 p-3 rounded-md transition text-black dark:text-white"
+                    className="w-full h-auto px-3 py-2 focus:outline-none bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 p-3 rounded-md transition text-black dark:text-white"
                     autoComplete="off"
                     onChange={onMessageChange}
                   />
                   <div className="flex justify-center items-center p-2">
                     <button
-                      className="bg-orangeDDTV transition hover:bg-orange-600 p-2 rounded-md text-white"
+                      className="bg-orangeDTTV transition hover:bg-orange-600 p-2 rounded-md text-white"
                       type="submit"
                     >
                       <span className="font-normal text-sm">Envoyer</span>
@@ -258,7 +257,7 @@ const Devis: NextPage = () => {
               {data ? (
                 <>
                   <div className="space-y-4">
-                    <h1 className="text-left pb-2 text-2xl lg:text-3xl md:!text-4xl sm:text-3xl xl:!text-6xl 2xl:!text-6xl font-bold text-orangeDDTV -rotate-2">
+                    <h1 className="text-left pb-2 text-2xl lg:text-3xl md:!text-4xl sm:text-3xl xl:!text-6xl 2xl:!text-6xl font-bold text-orangeDTTV -rotate-2">
                       {data?.content.MoneyTitle}
                       <div className="bg-growing-underline-black hidden">
                         &nbsp;
@@ -278,7 +277,7 @@ const Devis: NextPage = () => {
                 </>
               ) : (
                 <div className="space-y-4">
-                  <h1 className="text-left pb-2 text-2xl lg:text-3xl md:!text-4xl sm:text-3xl xl:!text-6xl 2xl:!text-6xl font-bold text-orangeDDTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 h-20 rounded-lg animate-pulse"></h1>
+                  <h1 className="text-left pb-2 text-2xl lg:text-3xl md:!text-4xl sm:text-3xl xl:!text-6xl 2xl:!text-6xl font-bold text-orangeDTTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 h-20 rounded-lg animate-pulse"></h1>
                   <br />
                   <div className="space-y-4">
                     <p className="text-xl sm:text-md font-bold bg-neutral-100 dark:bg-neutral-800 h-28 rounded-lg animate-pulse"></p>

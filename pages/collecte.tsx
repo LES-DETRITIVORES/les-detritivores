@@ -98,16 +98,16 @@ const Collecte: NextPage = () => {
               ) : (
                 <>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                   <div>
-                    <div className="rounded-lg w-80 bg-greenDDTV" />
+                    <div className="rounded-lg w-80 bg-greenDTTV" />
                   </div>
                 </>
               )}
@@ -125,7 +125,7 @@ const Collecte: NextPage = () => {
               {data ? (
                 <>
                   <div className="space-y-4">
-                    <h1 className="text-left pb-2 md:text-6xl text-3xl font-bold text-orangeDDTV -rotate-2">
+                    <h1 className="text-left pb-2 md:text-6xl text-3xl font-bold text-orangeDTTV -rotate-2">
                       COLLECTE
                     </h1>
                     <div className="space-y-4">
@@ -134,7 +134,7 @@ const Collecte: NextPage = () => {
                       </p>
                       <div className="flex flex-col items-center content-center space-y-2">
                         <div className="flex space-x-2">
-                          <span className="text-orangeDDTV text-3xl border-b-4 border-orangeDDTV -rotate-3 h-10">
+                          <span className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10">
                             1
                           </span>
                           <p className="text-xl font-light">
@@ -142,7 +142,7 @@ const Collecte: NextPage = () => {
                           </p>
                         </div>
                         <div className="flex space-x-2">
-                          <span className="text-orangeDDTV text-3xl border-b-4 border-orangeDDTV -rotate-3 h-10">
+                          <span className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10">
                             2
                           </span>
                           <p className="text-xl font-light">
@@ -150,7 +150,7 @@ const Collecte: NextPage = () => {
                           </p>
                         </div>
                         <div className="flex space-x-2">
-                          <span className="text-orangeDDTV text-3xl border-b-4 border-orangeDDTV -rotate-3 h-10">
+                          <span className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10">
                             3
                           </span>
                           <p className="text-xl font-light space-y-2">
@@ -171,20 +171,20 @@ const Collecte: NextPage = () => {
                 </>
               ) : (
                 <div className="space-y-4">
-                  <h1 className="text-left pb-2 md:text-6xl text-3xl font-bold text-orangeDDTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg animate-pulse h-20"></h1>
+                  <h1 className="text-left pb-2 md:text-6xl text-3xl font-bold text-orangeDTTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg animate-pulse h-20"></h1>
                   <div className="space-y-4 bg-neutral-100  dark:bg-neutral-800 rounded-lg animate-pulse">
                     <p className="text-xl font-bold bg-neutral-100 dark:bg-neutral-800 "></p>
                     <div className="flex flex-col items-center content-center space-y-2">
                       <div className="flex space-x-2">
-                        <div className="text-orangeDDTV text-3xl border-b-4 border-orangeDDTV -rotate-3 h-10 animate-pulse bg-neutral-100"></div>
+                        <div className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10 animate-pulse bg-neutral-100"></div>
                         <p className="text-xl font-light bg-neutral-100 dark:bg-neutral-800  h-20"></p>
                       </div>
                       <div className="flex space-x-2">
-                        <span className="text-orangeDDTV text-3xl border-b-4 bg-neutral-100  dark:bg-neutral-800 border-orangeDDTV -rotate-3 h-10"></span>
+                        <span className="text-orangeDTTV text-3xl border-b-4 bg-neutral-100  dark:bg-neutral-800 border-orangeDTTV -rotate-3 h-10"></span>
                         <p className="text-xl font-light bg-neutral-100 dark:bg-neutral-800  animate-pulse"></p>
                       </div>
                       <div className="flex space-x-2">
-                        <span className="text-orangeDDTV text-3xl border-b-4 bg-neutral-100 dark:bg-neutral-800  border-orangeDDTV -rotate-3 h-10"></span>
+                        <span className="text-orangeDTTV text-3xl border-b-4 bg-neutral-100 dark:bg-neutral-800  border-orangeDTTV -rotate-3 h-10"></span>
                         <p className="text-xl font-light space-y-2 bg-neutral-100 dark:bg-neutral-800  animate-pulse"></p>
                       </div>
                     </div>

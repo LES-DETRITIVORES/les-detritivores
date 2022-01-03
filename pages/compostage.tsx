@@ -43,7 +43,7 @@ const Compost: NextPage = () => {
               {data ? (
                 <>
                   <div className="space-y-4">
-                    <h1 className="text-left pb-2 md:text-6xl text-2xl font-bold text-orangeDDTV -rotate-2">
+                    <h1 className="text-left pb-2 md:text-6xl text-2xl font-bold text-orangeDTTV -rotate-2">
                       COMPOSTAGE
                       <div className="bg-growing-underline-black hidden">
                         &nbsp;
@@ -59,7 +59,7 @@ const Compost: NextPage = () => {
                         </p>
                         <div className="inline-flex space-x-2">
                           <Icons icons="check" className="w-5 h-5" />
-                          <p className="font-bold text-xl text-orangeDDTV">
+                          <p className="font-bold text-xl text-orangeDTTV">
                             {richText(data?.content.compostFourText)}
                           </p>
                         </div>
@@ -113,14 +113,14 @@ const Compost: NextPage = () => {
                 </>
               ) : (
                 <div className="space-y-4">
-                  <h1 className="text-left pb-4 md:text-6xl text-2xl font-bold text-orangeDDTV animate-pulse -rotate-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg h-20"></h1>
+                  <h1 className="text-left pb-4 md:text-6xl text-2xl font-bold text-orangeDTTV animate-pulse -rotate-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg h-20"></h1>
                   <br />
                   <div className="space-y-6">
                     <p className="text-xl sm:text-md font-bold bg-neutral-100 dark:bg-neutral-800 rounded-lg h-10 animate-pulse"></p>
                     <div className="flex flex-col space-y-2">
                       <p className="font-light text-xl p-4 space-y-2 pl-10 rounded-lg animate-pulse bg-neutral-100 h-20"></p>
                       <div className="inline-flex space-x-2 rounded-lg animate-pulse bg-neutral-100 dark:bg-neutral-800">
-                        <p className="font-bold text-xl text-orangeDDTV h-20"></p>
+                        <p className="font-bold text-xl text-orangeDTTV h-20"></p>
                       </div>
                     </div>
                   </div>
@@ -142,17 +142,17 @@ const Compost: NextPage = () => {
               )}
             </div>
             <div className="flex flex-col space-y-2">
-              <h1 className="text-center pb-2 md:text-vw text-vw font-bold text-orangeDDTV">
+              <h1 className="text-center pb-2 md:text-vw text-vw font-bold text-orangeDTTV">
                 Vous souhaitez acheter du compost auprès de
                 <br /> la SCIC SA LES DETRITIVORES ?
                 <div className="bg-growing-underline-black hidden">&nbsp;</div>
               </h1>
               <div className="flex flex-col">
-                <button className="bg-greenDDTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDDTV text-white p-4 w-60 rounded-full font-normal text-xl m-auto uppercase">
+                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-60 rounded-full font-normal text-xl m-auto uppercase">
                   <Link href="/devis">Commandez-le ici</Link>
                 </button>
-                <span className="text-center text-orangeDDTV">ou</span>
-                <button className="bg-greenDDTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDDTV text-white p-4 w-auto sm:w-auto xl:w-100 2xl:w-100 md:w-auto rounded-full font-normal text-md md:text-xl m-auto uppercase">
+                <span className="text-center text-orangeDTTV">ou</span>
+                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-auto sm:w-auto xl:w-100 2xl:w-100 md:w-auto rounded-full font-normal text-md md:text-xl m-auto uppercase">
                   Retrouvez-le dans nos magasins partenaires
                 </button>
               </div>
