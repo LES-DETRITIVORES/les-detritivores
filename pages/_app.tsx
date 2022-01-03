@@ -331,7 +331,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           )}
         </>
       )}
-      {router.pathname != "/admin/" && (
+      {router.pathname == "/admin" && (
         <div className="h-screen">
           <Component {...pageProps} />
         </div>

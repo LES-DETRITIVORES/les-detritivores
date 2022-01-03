@@ -5,7 +5,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo_mairie_bordeaux_1.png`,
+    image: `/static/images/partener/logo_mairie_bordeaux.png`,
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo_merignac.png`,
+    image: "/static/images/partener/logo_merignac.png",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo_bruges.jpg`,
+    image: "/static/images/partener/logo_bruges.jpg",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo-resize.png`,
+    image: "/static/images/partener/logo-resize.png",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo_bas.png`,
+    image: "/static/images/partener/logo_pessac.png",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo_bouliac.jpg`,
+    image: "/static/images/partener/logo_bouliac.jpg",
   },
 
   {
@@ -54,7 +54,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo_lege_cap_ferret.jpg`,
+    image: "/static/images/partener/logo_lege_cap_ferret.jpg",
   },
   {
     id: 9,
@@ -62,6 +62,6 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: `/static/images/partener/logo-footer.png`,
+    image: "/static/images/partener/logo_le_teich.png",
   },
 ];
