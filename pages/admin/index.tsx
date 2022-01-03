@@ -1,11 +1,10 @@
 import { Icons } from "components/icons";
 import { Firebase } from "libs/firebase";
-import React, { useState } from "react";
-import config from "react-reveal/globals";
+import React, { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import Slide from "react-reveal/Slide";
+import { Validate } from "libs/validate";
 function Index() {
-  // form title, description content image date of publish author button
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
@@ -14,35 +13,79 @@ function Index() {
   const [author, setAuthor] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const fire = new Firebase();
+
+  useEffect((): void => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  }, []);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setIsLoggedIn(true);
+        setError("");
+        setSuccess("");
+      })
+      .catch((error) => {
+        const up = new Validate();
+        const messages = up.errors(error.code, error.message);
+        setError(messages);
+        setSuccess("");
+      });
+  };
   const handleSubmit = (e) => {
-    if (
-      title === "" ||
-      description === "" ||
-      content === "" ||
-      image === "" ||
-      date === "" ||
-      author === ""
-    ) {
-      setError("Veuillez remplir tous les champs");
+    e.preventDefault();
+    if (!isLoggedIn) {
+      setError("You must be logged in to submit a news");
       setSuccess("");
     } else {
-      const fire = new Firebase();
-      fire.collection("posts").add({
-        title,
-        description,
-        content,
-        image,
-        date,
-        author,
-      });
-      setError("");
-      setSuccess("Article publié");
+      if (
+        title === "" ||
+        description === "" ||
+        content === "" ||
+        image === "" ||
+        date === "" ||
+        author === ""
+      ) {
+        setError("Veuillez remplir tous les champs");
+        setSuccess("");
+      } else {
+        fire.collection("posts").add({
+          title,
+          description,
+          content,
+          image,
+          date,
+          author,
+        });
+        setError("");
+        setSuccess("Article publié");
+      }
+
+      console.log(title, description, content, image, date, author);
     }
-
-    e.preventDefault();
-    console.log(title, description, content, image, date, author);
   };
-
+  const authenticateWithGoogle = async () => {
+    try {
+      await fire.signWith("redirectAndLink");
+    } catch (error: any) {
+      const up = new Validate();
+      const messages = up.errors(error.code, error.message);
+      setError(messages);
+    }
+  };
+  const all = title + description + content + image + date + author;
   return (
     <>
       {error && (
@@ -83,6 +126,7 @@ function Index() {
           </div>
         </Slide>
       )}
+
       <div className="flex flex-no-wrap transition">
         <Fade left>
           <div className="lg:w-64 absolute sm:relative bg-greenDTTV shadow flex-col justify-between sm:flex h-48 w-screen lg:h-screen">
@@ -94,13 +138,40 @@ function Index() {
                 />
               </div>
               <ul className="mt-12">
+                <li
+                  className="flex w-full justify-between text-neutral-50 hover:text-neutral-100 cursor-pointer items-center mb-6"
+                  onClick={() => setIsLoggedIn(false)}
+                >
+                  <div className="flex items-center">
+                    <svg
+                      className="icon icon-tabler icon-tabler-grid hover:bg-white hover:text-black rounded transition w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="text-xs ml-2 font-light">Login</span>
+                  </div>
+                </li>
                 <li className="flex w-full justify-between text-neutral-50 hover:text-neutral-100 cursor-pointer items-center mb-6">
                   <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-grid"
-                      width={18}
-                      height={18}
+                      className="icon icon-tabler icon-tabler-grid hover:bg-white hover:text-black rounded transition w-5 h-5"
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
@@ -114,13 +185,31 @@ function Index() {
                       <rect x={4} y={14} width={6} height={6} rx={1} />
                       <rect x={14} y={14} width={6} height={6} rx={1} />
                     </svg>
-                    <span className="text-sm ml-2">News</span>
+                    <span className="text-xs ml-2 font-light">News</span>
                   </div>
                 </li>
               </ul>
             </div>
+            <div className="flex items-center mt-48 mb-4 px-8">
+              <div className="w-10 h-10 bg-cover rounded-md mr-3">
+                <img
+                  src={
+                    (fire.photoUrl() as string)
+                      ? "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+                      : (fire.photoUrl() as string)
+                  }
+                  className="rounded-full h-full w-full overflow-hidden shadow"
+                />
+              </div>
+              <div>
+                <p className="text-neutral-100 text-sm font-light">
+                  {fire.userName()}
+                </p>
+              </div>
+            </div>
           </div>
         </Fade>
+
         <Fade top>
           <div className="container mx-auto py-8 lg:py-10 md:w-4/5 w-11/12 px-6 lg:h-64 h-screen">
             <div className="w-full h-full rounded">
@@ -240,10 +329,22 @@ function Index() {
                         />
                       </div>
                     </div>
+                    {all.length > 1 && (
+                      <div className="h-1 w-48 bg-gray-300 mt-5">
+                        <div
+                          style={{ width: `${all.length}%` }}
+                          className={`h-full transition ${
+                            all.length < 40 ? "bg-red-600" : "bg-green-600"
+                          }`}
+                        />
+                        {all.length}%
+                      </div>
+                    )}
                     <button
                       role="submit"
                       aria-label="Next step"
                       className="flex items-center justify-center py-4 px-7 focus:outline-none bg-white border rounded border-gray-400 mt-7 md:mt-14 hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+                      {...(all.length < 40 ? { disabled: true } : {})}
                     >
                       <span className="text-sm font-medium text-center text-gray-800 capitalize">
                         Ajouter
@@ -266,6 +367,59 @@ function Index() {
                 </div>
               </div>
             </div>
+            {!isLoggedIn && (
+              <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-neutral-50">
+                <div className="mt-3 text-center">
+                  <form onSubmit={handleLogin}>
+                    <div className="mx-auto flex items-center justify-center flex-col space-y-2">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Login
+                      </h3>
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        className="bg-white px-2 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        className="bg-white px-2 py-2 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                    <div className="mt-2 px-7 py-3">
+                      <p className="text-sm text-gray-500">nice gg</p>
+                    </div>
+                    <div className="items-center px-4 py-3 space-y-2">
+                      <button
+                        type="submit"
+                        className="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
+                      >
+                        Connect
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => authenticateWithGoogle()}
+                        className="py-2 px-4 flex justify-center items-center bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          className="mr-2"
+                          viewBox="0 0 1792 1792"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M896 786h725q12 67 12 128 0 217-91 387.5t-259.5 266.5-386.5 96q-157 0-299-60.5t-245-163.5-163.5-245-60.5-299 60.5-299 163.5-245 245-163.5 299-60.5q300 0 515 201l-209 201q-123-119-306-119-129 0-238.5 65t-173.5 176.5-64 243.5 64 243.5 173.5 176.5 238.5 65q87 0 160-24t120-60 82-82 51.5-87 22.5-78h-436v-264z" />
+                        </svg>
+                        Connexion avec Google
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
           </div>
         </Fade>
       </div>

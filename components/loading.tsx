@@ -8,7 +8,7 @@ const Loading = ({ title }) => {
         icons="spinner"
         className="animate-spin h-5 w-5 text-neutral-900 dark:text-neutral-100"
       />
-      <span>{title}</span>
+      <span className="text-black dark:text-white">{title}</span>
     </div>
   );
 };
