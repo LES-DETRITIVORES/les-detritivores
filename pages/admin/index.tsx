@@ -28,7 +28,7 @@ function Index() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isLoggedIn) {
-      setError("You must be logged in to submit a news");
+      setError("Tu dois être connecté pour poster un article");
       setSuccess("");
     } else {
       if (
@@ -108,14 +108,14 @@ function Index() {
         </Slide>
       )}
 
-      <div className="flex flex-no-wrap transition">
+      <div className="flex flex-no-wrap transition overflow-auto">
         <Fade left>
-          <div className="lg:w-64 absolute sm:relative bg-greenDTTV shadow flex-col justify-between sm:flex h-48 w-screen lg:h-screen">
+          <div className="lg:w-64 absolute sm:relative bg-greenDTTV shadow flex-col justify-between sm:flex h-64 w-screen lg:h-screen">
             <div className="px-6">
-              <div className="h-16 w-full flex items-center">
+              <div className="h-16 w-full flex items-center justify-center mt-8">
                 <Icons
                   icons="logo"
-                  className="text-white fill-current w-36 h-20 mt-10 ml-2"
+                  className="text-white fill-current w-36 h-20"
                 />
               </div>
               <ul className="mt-12">
@@ -169,6 +169,24 @@ function Index() {
               </ul>
             </div>
             {isLoggedIn ? (
+              <div className="inline-flex items-center mt-48 mb-4 px-8">
+                <div className="w-8 h-8 bg-cover rounded-md mr-3">
+                  <img
+                    src={
+                      (fire.photoUrl() as string)
+                        ? "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+                        : (fire.photoUrl() as string)
+                    }
+                    className="rounded-full h-full w-full overflow-hidden shadow"
+                  />
+                </div>
+                <div>
+                  <p className="text-neutral-100 text-xs font-light">
+                    {fire.userName()}
+                  </p>
+                </div>
+              </div>
+            ) : (
               <Fade bottom>
                 <button
                   type="button"
@@ -188,30 +206,12 @@ function Index() {
                   Connexion avec Google
                 </button>
               </Fade>
-            ) : (
-              <div className="flex items-center mt-48 mb-4 px-8 flex-col space-y-2">
-                <div className="w-10 h-10 bg-cover rounded-md mr-3">
-                  <img
-                    src={
-                      (fire.photoUrl() as string)
-                        ? "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
-                        : (fire.photoUrl() as string)
-                    }
-                    className="rounded-full h-full w-full overflow-hidden shadow"
-                  />
-                </div>
-                <div>
-                  <p className="text-neutral-100 text-sm font-light">
-                    {fire.userName()}
-                  </p>
-                </div>
-              </div>
             )}
           </div>
         </Fade>
 
         <Fade top>
-          <div className="container mx-auto py-8 lg:py-10 md:w-4/5 w-11/12 px-6 lg:h-64 h-screen">
+          <div className="container mx-auto py-8 lg:py-10 md:w-4/5 w-11/12 px-6 lg:h-64 h-screen lg:my-0 my-48">
             <div className="w-full h-full rounded">
               <div>
                 <div className="w-full">
