@@ -310,6 +310,7 @@ function Index() {
                           aria-label="Entrer la date de publication"
                           className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Date de publication"
+                          type="date"
                           value={date}
                           onChange={(e) => setDate(e.target.value)}
                         />
@@ -330,14 +331,20 @@ function Index() {
                       </div>
                     </div>
                     {all.length > 1 && (
-                      <div className="h-1.5 rounded-lg w-48 bg-gray-300 mt-5">
-                        <div
-                          style={{ width: `${all.length}%` }}
-                          className={`h-full transition-colors rounded-lg duration-100 ${
-                            all.length < 40 ? "bg-red-600" : "bg-green-600"
-                          }`}
-                        />
-                        {all.length}%
+                      <div className="flex justify-start items-start">
+                        <div className="h-1.5 rounded-lg w-48 bg-gray-300 mt-5">
+                          <div
+                            style={{ width: `${all.length}%` }}
+                            className={`h-full transition-colors rounded-lg duration-100 ${
+                              all.length < 40
+                                ? "bg-red-600 transition-colors duration-150"
+                                : "bg-green-600 transition-colors duration-150"
+                            }`}
+                          />
+                          <span className="text-xs inline-flex bg-neutral-900 mt-1 px-1.5 py-2 text-white rounded-full">
+                            {all.length}%
+                          </span>
+                        </div>
                       </div>
                     )}
                     <button
