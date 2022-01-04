@@ -151,6 +151,9 @@ img {
 label {
   @apply font-light;
 }
+button:disabled {
+  @apply cursor-not-allowed animate-bounce transition;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

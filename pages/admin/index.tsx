@@ -249,7 +249,7 @@ function Index() {
                           type="name"
                           tabIndex={0}
                           aria-label="Entrer le titre"
-                          className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Titre"
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
@@ -263,7 +263,7 @@ function Index() {
                           type="name"
                           tabIndex={0}
                           aria-label="Entrer la description"
-                          className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Description"
                           value={description}
                           onChange={(e) => setDescription(e.target.value)}
@@ -279,7 +279,7 @@ function Index() {
                           type="text"
                           tabIndex={0}
                           aria-label="Entrer le contenu"
-                          className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Contenu"
                           value={content}
                           onChange={(e) => setContent(e.target.value)}
@@ -293,7 +293,7 @@ function Index() {
                           type="text"
                           tabIndex={0}
                           aria-label="Ajouter un lien d'image"
-                          className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Lien de l'image"
                           value={image}
                           onChange={(e) => setImage(e.target.value)}
@@ -308,7 +308,7 @@ function Index() {
                         <input
                           tabIndex={0}
                           aria-label="Entrer la date de publication"
-                          className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Date de publication"
                           value={date}
                           onChange={(e) => setDate(e.target.value)}
@@ -322,7 +322,7 @@ function Index() {
                           type="name"
                           tabIndex={0}
                           aria-label="Entrer l'auteur"
-                          className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
                           placeholder="Auteur"
                           value={author}
                           onChange={(e) => setAuthor(e.target.value)}
@@ -346,7 +346,7 @@ function Index() {
                       className="flex items-center justify-center py-4 px-7 focus:outline-none bg-white border rounded border-gray-400 mt-7 md:mt-14 hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
                       {...(all.length < 40 ? { disabled: true } : {})}
                     >
-                      <span className="text-sm font-medium text-center text-gray-800 capitalize">
+                      <span className="text-xs font-normal text-center text-gray-800 capitalize">
                         Ajouter
                       </span>
                       <svg
