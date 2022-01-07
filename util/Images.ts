@@ -29,7 +29,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: "/static/images/partener/logo-resize.png",
+    image: "/static/images/partener/logo_bas.png",
   },
   {
     id: 5,
