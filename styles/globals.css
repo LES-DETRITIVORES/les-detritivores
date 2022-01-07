@@ -12,10 +12,10 @@ body {
   @apply bg-white dark:bg-neutral-900 overflow-x-hidden transition w-screen font-fira font-normal;
 }
 p {
-  @apply font-sf-ui;
+  @apply font-sf-ui antialiased;
 }
 span {
-  @apply text-xl font-bold font-sf-ui;
+  @apply text-xl font-bold font-sf-ui antialiased;
 }
 h1 {
   font-family: "Fira Sans", sans-serif;
