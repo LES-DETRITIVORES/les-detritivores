@@ -336,10 +336,10 @@ function Index() {
                         <div className="h-1.5 rounded-lg w-48 bg-gray-300 mt-5">
                           <div
                             style={{ width: `${all.length}%` }}
-                            className={`h-full transition-colors rounded-lg duration-100 ${
+                            className={`h-full rounded-lg transition duration-300 ease-in-out ${
                               all.length < 40
-                                ? "bg-red-600 transition-colors duration-150"
-                                : "bg-green-600 transition-colors duration-150"
+                                ? "bg-red-600 transition duration-300 ease-in-out"
+                                : "bg-green-600 transition duration-300 ease-in-out"
                             }`}
                           />
                           <span className="text-xs inline-flex bg-neutral-900 mt-1 px-1.5 py-2 text-white rounded-full">
