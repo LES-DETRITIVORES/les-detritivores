@@ -249,7 +249,7 @@ function Index() {
                           type="name"
                           tabIndex={0}
                           aria-label="Entrer le titre"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
                           placeholder="Titre"
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
@@ -263,7 +263,7 @@ function Index() {
                           type="name"
                           tabIndex={0}
                           aria-label="Entrer la description"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
                           placeholder="Description"
                           value={description}
                           onChange={(e) => setDescription(e.target.value)}
@@ -279,7 +279,7 @@ function Index() {
                           type="text"
                           tabIndex={0}
                           aria-label="Entrer le contenu"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
                           placeholder="Contenu"
                           value={content}
                           onChange={(e) => setContent(e.target.value)}
@@ -293,7 +293,7 @@ function Index() {
                           type="text"
                           tabIndex={0}
                           aria-label="Ajouter un lien d'image"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
                           placeholder="Lien de l'image"
                           value={image}
                           onChange={(e) => setImage(e.target.value)}
@@ -308,7 +308,7 @@ function Index() {
                         <input
                           tabIndex={0}
                           aria-label="Entrer la date de publication"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
                           placeholder="Date de publication"
                           type="date"
                           value={date}
@@ -323,7 +323,7 @@ function Index() {
                           type="name"
                           tabIndex={0}
                           aria-label="Entrer l'auteur"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200"
+                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
                           placeholder="Auteur"
                           value={author}
                           onChange={(e) => setAuthor(e.target.value)}

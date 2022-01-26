@@ -172,7 +172,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Vous êtes:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onWhoChange}
                   />
@@ -182,7 +182,7 @@ const Devis: NextPage = () => {
                     Nombre de repas servis par jour:*
                   </label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onNumberChange}
                   />
@@ -190,7 +190,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Structure:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onStructureChange}
                   />
@@ -198,7 +198,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Fonction:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onFonctionChange}
                   />
@@ -206,7 +206,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Nom:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onNameChange}
                   />
@@ -214,7 +214,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Prénom:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onLastNameChange}
                   />
@@ -222,7 +222,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Email:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onMailChange}
                   />
@@ -230,7 +230,7 @@ const Devis: NextPage = () => {
                 <div className="flex flex-col">
                   <label className="font-light">Téléphone:*</label>
                   <input
-                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition"
+                    className="bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 h-12 p-3 rounded-md transition focus:outline-none"
                     autoComplete="off"
                     onChange={onPhoneChange}
                   />
@@ -244,7 +244,7 @@ const Devis: NextPage = () => {
                   />
                   <div className="flex justify-center items-center p-2">
                     <button
-                      className="bg-orangeDTTV transition hover:bg-orange-600 p-2 rounded-md text-white"
+                      className="bg-orangeDTTV transition hover:bg-orange-600 p-2 rounded-3xl text-white hover:ring-2 focus:ring-2 ring-orange-300"
                       type="submit"
                     >
                       <span className="font-normal text-sm">Envoyer</span>
