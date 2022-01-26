@@ -148,12 +148,18 @@ const Compost: NextPage = () => {
                 <div className="bg-growing-underline-black hidden">&nbsp;</div>
               </h1>
               <div className="flex flex-col">
-                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-60 rounded-full font-normal text-xl m-auto uppercase">
-                  <Link href="/devis">Commandez-le ici</Link>
+                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-60 rounded-full m-auto focus:outline-none">
+                  <Link href="/devis">
+                    <span className="font-normal text-xl focus:outline-none uppercase">
+                      Commandez-le ici
+                    </span>
+                  </Link>
                 </button>
                 <span className="text-center text-orangeDTTV">ou</span>
-                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-auto sm:w-auto xl:w-100 2xl:w-100 md:w-auto rounded-full font-normal text-md md:text-xl m-auto uppercase">
-                  Retrouvez-le dans nos magasins partenaires
+                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-auto sm:w-auto xl:w-100 2xl:w-100 md:w-auto rounded-full m-auto focus:outline-none">
+                  <span className="focus:outline-none font-normal text-md md:text-xl uppercase">
+                    Retrouvez-le dans nos magasins partenaires
+                  </span>
                 </button>
               </div>
             </div>

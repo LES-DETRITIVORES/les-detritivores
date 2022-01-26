@@ -12,7 +12,7 @@ const ToggleTheme = () => {
   return (
     <button
       type="button"
-      className="w-10 h-10"
+      className="w-10 h-10 focus:outline-none"
       onClick={() => setTheme(getNextTheme())}
     >
       {(() => {

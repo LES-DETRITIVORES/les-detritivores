@@ -244,7 +244,7 @@ const Devis: NextPage = () => {
                   />
                   <div className="flex justify-center items-center p-2">
                     <button
-                      className="bg-orangeDTTV transition hover:bg-orange-600 p-2 rounded-3xl text-white hover:ring-2 focus:ring-2 ring-orange-300"
+                      className="bg-orangeDTTV transition hover:bg-orange-600 p-2 rounded-3xl text-white hover:ring-2 focus:ring-2 ring-orange-300 focus:outline-none"
                       type="submit"
                     >
                       <span className="font-normal text-sm">Envoyer</span>
