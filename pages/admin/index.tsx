@@ -69,6 +69,7 @@ function Index() {
   const all = title + description + content + image + date + author;
   return (
     <>
+      <title>Dashboard - Les Détritivores</title>
       {error && (
         <>
           <Slide duration={500} top>
