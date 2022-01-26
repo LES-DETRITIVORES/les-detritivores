@@ -85,7 +85,7 @@ const Devis: NextPage = () => {
       setSuccess(true);
     }
 
-    fetch(`https://api-DTTV.herokuapp.com/send`, {
+    fetch(`/api/send`, {
       method: "POST",
       headers: {
         Accept: "application/json",
