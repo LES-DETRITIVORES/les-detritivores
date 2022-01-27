@@ -118,7 +118,7 @@ function Index() {
                 />
               </div>
               <ul className="mt-12">
-                <li className="flex w-full justify-between text-neutral-50 hover:text-neutral-100 cursor-pointer items-center mb-6">
+                <li className="flex w-full justify-between transition-all text-neutral-50 hover:bg-green-900 hover:px-2 hover:py-2 cursor-pointer items-center mb-6 rounded-lg">
                   <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -141,27 +141,24 @@ function Index() {
                 </li>
                 {isLoggedIn && (
                   <li
-                    className="flex w-full justify-between text-neutral-50 hover:text-neutral-100 cursor-pointer items-center mb-6"
+                    className="flex w-full justify-between transition-all text-neutral-50 hover:bg-green-900 hover:px-2 hover:py-2 cursor-pointer items-center mb-6 rounded-lg"
                     onClick={() => fire.logOut()}
                   >
                     <div className="flex items-center">
                       <svg
+                        className="icon icon-tabler icon-tabler-grid hover:bg-white hover:text-black rounded transition w-4 h-4"
+                        role="img"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="icon icon-tabler icon-tabler-grid hover:bg-white hover:text-black rounded transition w-5 h-5"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        viewBox="0 0 512 512"
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <rect x={4} y={4} width={6} height={6} rx={1} />
-                        <rect x={14} y={4} width={6} height={6} rx={1} />
-                        <rect x={4} y={14} width={6} height={6} rx={1} />
-                        <rect x={14} y={14} width={6} height={6} rx={1} />
+                        <path
+                          fill="currentColor"
+                          d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"
+                        ></path>
                       </svg>
-                      <span className="text-xs ml-2 font-light">Logout</span>
+                      <span className="text-xs ml-2 font-light">
+                        Déconnexion
+                      </span>
                     </div>
                   </li>
                 )}
@@ -349,25 +346,27 @@ function Index() {
                     <button
                       role="submit"
                       aria-label="Next step"
-                      className="flex items-center justify-center py-4 px-7 focus:outline-none bg-white border rounded border-gray-400 mt-7 md:mt-14 hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+                      className="flex items-center justify-center py-4 px-7 bg-greenDTTV hover:bg-green-900 transition rounded-xl mt-7 md:mt-14 focus:outline-none"
                       {...(!fire.isConnected() ? { disabled: true } : {})}
                     >
-                      <span className="text-xs font-normal text-center text-gray-800 capitalize">
-                        Ajouter
-                      </span>
-                      <svg
-                        className="mt-1 ml-3"
-                        width={12}
-                        height={8}
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z"
-                          fill="#242731"
-                        />
-                      </svg>
+                      <div className="inline-flex items-end justify-center space-x-3">
+                        <span className="text-xs font-normal text-center text-white capitalize">
+                          Ajouter
+                        </span>
+                        <svg
+                          className="text-white mb-1"
+                          width={12}
+                          height={8}
+                          viewBox="0 0 12 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </form>
                 </div>
