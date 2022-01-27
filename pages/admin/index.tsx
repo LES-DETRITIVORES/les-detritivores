@@ -53,8 +53,6 @@ function Index() {
         setError("");
         setSuccess("Article publié");
       }
-
-      console.log(title, description, content, image, date, author);
     }
   };
   const authenticateWithGoogle = async () => {
@@ -352,7 +350,7 @@ function Index() {
                       role="submit"
                       aria-label="Next step"
                       className="flex items-center justify-center py-4 px-7 focus:outline-none bg-white border rounded border-gray-400 mt-7 md:mt-14 hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
-                      {...(all.length < 40 ? { disabled: true } : {})}
+                      {...(!fire.isConnected() ? { disabled: true } : {})}
                     >
                       <span className="text-xs font-normal text-center text-gray-800 capitalize">
                         Ajouter
