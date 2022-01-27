@@ -29,7 +29,7 @@ export const Images = [
     height: "height",
     imageWidth: "350",
     imageHeight: "350",
-    image: "/static/images/partener/logo_bas.png",
+    image: "/static/images/partener/logo_bas_black.jpg",
   },
   {
     id: 5,
