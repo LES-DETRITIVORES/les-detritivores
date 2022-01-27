@@ -208,167 +208,233 @@ function Index() {
 
         <Fade top>
           <div className="container mx-auto py-8 lg:py-10 md:w-4/5 w-11/12 px-6 lg:h-64 h-screen lg:my-0 my-48">
-            <div className="w-full h-full rounded">
+            <div className="w-full h-full">
               <div>
-                <div className="w-full">
-                  <h1
-                    tabIndex={0}
-                    role="heading"
-                    aria-label="profile information"
-                    className="focus:outline-none text-3xl font-bold text-gray-800 mt-12"
-                  >
-                    Ajout d'un nouvelle news
-                  </h1>
-                  <p
-                    role="contentinfo"
-                    className=" focus:outline-nonetext-sm font-light leading-tight text-gray-600 mt-4"
-                  >
-                    Ajouter une news
-                  </p>
-                  <h2
-                    role="heading"
-                    aria-label="enter Personal data"
-                    className="text-xl font-semibold leading-7 text-gray-800 mt-10"
-                  >
-                    Formulaire d'ajout d'une news
-                  </h2>
-                  <p className="text-sm font-light leading-none text-gray-600 mt-0.5">
-                    Vous pouvez ajouter une news
-                  </p>
-                  <form method="POST" onSubmit={handleSubmit}>
-                    <div className="mt-8 md:flex items-center">
-                      <div className="flex flex-col">
-                        <label className="mb-3 text-sm leading-none text-gray-800">
-                          Titre
-                        </label>
-                        <input
-                          type="name"
-                          tabIndex={0}
-                          aria-label="Entrer le titre"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
-                          placeholder="Titre"
-                          value={title}
-                          onChange={(e) => setTitle(e.target.value)}
-                        />
-                      </div>
-                      <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
-                        <label className="mb-3 text-sm leading-none text-gray-800">
-                          Description
-                        </label>
-                        <input
-                          type="name"
-                          tabIndex={0}
-                          aria-label="Entrer la description"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
-                          placeholder="Description"
-                          value={description}
-                          onChange={(e) => setDescription(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-12 md:flex items-center">
-                      <div className="flex flex-col">
-                        <label className="mb-3 text-sm leading-none text-gray-800">
-                          Contenu
-                        </label>
-                        <input
-                          type="text"
-                          tabIndex={0}
-                          aria-label="Entrer le contenu"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
-                          placeholder="Contenu"
-                          value={content}
-                          onChange={(e) => setContent(e.target.value)}
-                        />
-                      </div>
-                      <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
-                        <label className="mb-3 text-sm leading-none text-gray-800">
-                          Image
-                        </label>
-                        <input
-                          type="text"
-                          tabIndex={0}
-                          aria-label="Ajouter un lien d'image"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
-                          placeholder="Lien de l'image"
-                          value={image}
-                          onChange={(e) => setImage(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-12 md:flex items-center">
-                      <div className="flex flex-col">
-                        <label className="mb-3 text-sm leading-none text-gray-800">
-                          Date de publication
-                        </label>
-                        <input
-                          tabIndex={0}
-                          aria-label="Entrer la date de publication"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
-                          placeholder="Date de publication"
-                          type="date"
-                          value={date}
-                          onChange={(e) => setDate(e.target.value)}
-                        />
-                      </div>
-                      <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
-                        <label className="mb-3 text-sm leading-none text-gray-800">
-                          Auteur
-                        </label>
-                        <input
-                          type="name"
-                          tabIndex={0}
-                          aria-label="Entrer l'auteur"
-                          className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
-                          placeholder="Auteur"
-                          value={author}
-                          onChange={(e) => setAuthor(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    {all.length > 1 && (
-                      <div className="flex justify-start items-start">
-                        <div className="h-1.5 rounded-lg w-48 bg-gray-300 mt-5">
-                          <div
-                            style={{ width: `${all.length}%` }}
-                            className={`h-full rounded-lg transition duration-300 ease-in-out ${
-                              all.length < 40
-                                ? "bg-red-600 transition duration-300 ease-in-out"
-                                : "bg-green-600 transition duration-300 ease-in-out"
-                            }`}
+                <div className="w-full grid grid-cols-2">
+                  <div className="flex flex-col justify-center items-center">
+                    <h2
+                      role="heading"
+                      aria-label="enter Personal data"
+                      className="text-xl font-semibold leading-7 text-gray-800 mt-10"
+                    >
+                      Formulaire d'ajout d'une news
+                    </h2>
+                    <p className="text-sm font-light leading-none text-gray-600 mt-0.5">
+                      Vous pouvez ajouter une news
+                    </p>
+                    <form method="POST" onSubmit={handleSubmit}>
+                      <div className="mt-8 md:flex items-center">
+                        <div className="flex flex-col">
+                          <label className="mb-3 text-sm leading-none text-gray-800">
+                            Titre
+                          </label>
+                          <input
+                            type="name"
+                            tabIndex={0}
+                            aria-label="Entrer le titre"
+                            className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
+                            placeholder="Titre"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                           />
-                          <span className="text-xs inline-flex bg-neutral-900 mt-1 px-1.5 py-2 text-white rounded-full">
-                            {all.length}%
-                          </span>
+                        </div>
+                        <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
+                          <label className="mb-3 text-sm leading-none text-gray-800">
+                            Description
+                          </label>
+                          <input
+                            type="name"
+                            tabIndex={0}
+                            aria-label="Entrer la description"
+                            className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
+                            placeholder="Description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                          />
                         </div>
                       </div>
-                    )}
-                    <button
-                      role="submit"
-                      aria-label="Next step"
-                      className="flex items-center justify-center py-4 px-7 bg-greenDTTV hover:bg-green-900 transition rounded-xl mt-7 md:mt-14 focus:outline-none"
-                      {...(!fire.isConnected() ? { disabled: true } : {})}
-                    >
-                      <div className="inline-flex items-end justify-center space-x-3">
-                        <span className="text-xs font-normal text-center text-white capitalize">
-                          Ajouter
-                        </span>
-                        <svg
-                          className="text-white mb-1"
-                          width={12}
-                          height={8}
-                          viewBox="0 0 12 8"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z"
-                            fill="white"
+                      <div className="mt-12 md:flex items-center">
+                        <div className="flex flex-col">
+                          <label className="mb-3 text-sm leading-none text-gray-800">
+                            Contenu
+                          </label>
+                          <input
+                            type="text"
+                            tabIndex={0}
+                            aria-label="Entrer le contenu"
+                            className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
+                            placeholder="Contenu"
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
                           />
-                        </svg>
+                        </div>
+                        <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
+                          <label className="mb-3 text-sm leading-none text-gray-800">
+                            Image
+                          </label>
+                          <input
+                            type="text"
+                            tabIndex={0}
+                            aria-label="Ajouter un lien d'image"
+                            className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
+                            placeholder="Lien de l'image"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
+                          />
+                        </div>
                       </div>
-                    </button>
-                  </form>
+                      <div className="mt-12 md:flex items-center">
+                        <div className="flex flex-col">
+                          <label className="mb-3 text-sm leading-none text-gray-800">
+                            Date de publication
+                          </label>
+                          <input
+                            tabIndex={0}
+                            aria-label="Entrer la date de publication"
+                            className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
+                            placeholder="Date de publication"
+                            type="date"
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                          />
+                        </div>
+                        <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
+                          <label className="mb-3 text-sm leading-none text-gray-800">
+                            Auteur
+                          </label>
+                          <input
+                            type="name"
+                            tabIndex={0}
+                            aria-label="Entrer l'auteur"
+                            className="w-64 bg-gray-100 text-xs font-normal leading-none text-gray-800 p-3 border rounded border-gray-200 focus:outline-none"
+                            placeholder="Auteur"
+                            value={author}
+                            onChange={(e) => setAuthor(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      {all.length > 1 && (
+                        <div className="flex justify-start items-start">
+                          <div className="h-1.5 rounded-lg w-48 bg-gray-300 mt-5">
+                            <div
+                              style={{ width: `${all.length}%` }}
+                              className={`h-full rounded-lg transition duration-300 ease-in-out ${
+                                all.length < 40
+                                  ? "bg-red-600 transition duration-300 ease-in-out"
+                                  : "bg-green-600 transition duration-300 ease-in-out"
+                              }`}
+                            />
+                            <span className="text-xs inline-flex bg-neutral-900 mt-1 px-1.5 py-2 text-white rounded-full">
+                              {all.length}%
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                      <button
+                        role="submit"
+                        aria-label="Next step"
+                        className="flex items-center justify-center py-4 px-7 bg-greenDTTV hover:bg-green-900 transition rounded-xl mt-7 md:mt-14 focus:outline-none"
+                        {...(!fire.isConnected() ? { disabled: true } : {})}
+                      >
+                        <div className="inline-flex items-end justify-center space-x-3">
+                          <span className="text-xs font-normal text-center text-white capitalize">
+                            Ajouter
+                          </span>
+                          <svg
+                            className="text-white mb-1"
+                            width={12}
+                            height={8}
+                            viewBox="0 0 12 8"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </div>
+                      </button>
+                    </form>
+                  </div>
+                  <div className="flex flex-col justify-center items-center space-y-2">
+                    <h1
+                      tabIndex={0}
+                      role="heading"
+                      aria-label="profile information"
+                      className="focus:outline-none text-3xl font-bold text-gray-800 mt-12"
+                    >
+                      Liste des news
+                    </h1>
+                    <p
+                      role="contentinfo"
+                      className=" focus:outline-nonetext-sm font-light leading-tight text-gray-600 mt-4"
+                    >
+                      Voici toute les news que vous avez publiées.
+                    </p>
+                    <div className="flex flex-col justify-center items-center space-y-2">
+                      <div className="grid grid-cols-4 space-x-2">
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-4 space-x-2">
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src="https://i.picsum.photos/id/823/450/300.jpg?hmac=yy240RCPu48Zvl8pOC4HbHbC2tgDBs2pUt4pQdIT7-8"
+                            alt="news"
+                            className="w-full h-full rounded-lg"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
