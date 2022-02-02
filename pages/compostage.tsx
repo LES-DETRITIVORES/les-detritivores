@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import React, { useState, useEffect } from "react";
 import useSWR from "swr";
 import Fade from "react-reveal/Fade";
+import Slide from "react-reveal/Slide";
 import fetcher from "libs/fetcher";
 
 import { StoryBlok } from "libs/types";
@@ -14,6 +15,7 @@ import Image from "next/image";
 const Compost: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
   useEffect(() => {
     if (window.innerWidth > 769) {
@@ -30,6 +32,26 @@ const Compost: NextPage = () => {
   }, []);
   return (
     <>
+      {showModal && (
+        <Slide top>
+          <div className="absolute p-6 max-w-sm bg-white dark:bg-neutral-900 rounded-xl shadow-lg shadow-greenDTTV dark:shadow-orangeDTTV flex justify-start mx-2 my-2 items-center space-x-4 z-50">
+            <div className="shrink-0">
+              <Icons
+                icons="logo"
+                className="h-12 w-12 fill-current text-black dark:text-white"
+              />
+            </div>
+            <div>
+              <div className="text-xl font-medium text-black dark:text-white">
+                Woops !
+              </div>
+              <p className="text-neutral-500 dark:text-neutral-50">
+                Cette action n'est pas encore disponible.
+              </p>
+            </div>
+          </div>
+        </Slide>
+      )}
       <Fade
         left={isDesktop}
         bottom={isMobile}
@@ -156,7 +178,15 @@ const Compost: NextPage = () => {
                   </Link>
                 </button>
                 <span className="text-center text-orangeDTTV">ou</span>
-                <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-auto sm:w-auto xl:w-100 2xl:w-100 md:w-auto rounded-full m-auto focus:outline-none">
+                <button
+                  className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-auto sm:w-auto xl:w-100 2xl:w-100 md:w-auto rounded-full m-auto focus:outline-none"
+                  onClick={() => {
+                    setShowModal(true);
+                    setTimeout(() => {
+                      setShowModal(false);
+                    }, 5000);
+                  }}
+                >
                   <span className="focus:outline-none font-normal text-md md:text-xl uppercase">
                     Retrouvez-le dans nos magasins partenaires
                   </span>
