@@ -3,7 +3,7 @@ import { Icons } from "./icons";
 
 const Loading = ({ title }) => {
   return (
-    <div className="flex space-x-1 justify-center">
+    <div className="flex space-x-1 justify-center items-center">
       <Icons
         icons="spinner"
         className="animate-spin h-5 w-5 text-neutral-900 dark:text-neutral-100"
