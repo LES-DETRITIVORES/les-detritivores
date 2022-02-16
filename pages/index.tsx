@@ -307,7 +307,7 @@ const Home: NextPage = () => {
                                     icons="plus"
                                     className="text-white fill-current w-5 h-5 mr-1 mt-0.5"
                                   />
-                                  <Link href="/collecte">
+                                  <Link href="/collection">
                                     <span className="focus:outline-none text-[1rem] font-light">
                                       En savoir plus
                                     </span>
@@ -334,7 +334,7 @@ const Home: NextPage = () => {
                                     icons="plus"
                                     className="text-white fill-current w-5 h-5 mr-1 mt-0.5"
                                   />
-                                  <Link href="/sensibilisation">
+                                  <Link href="/sensitization">
                                     <span className="focus:outline-none text-[1rem] font-light">
                                       En savoir plus
                                     </span>
@@ -361,7 +361,7 @@ const Home: NextPage = () => {
                                     icons="plus"
                                     className="text-white fill-current w-5 h-5 mr-1 mt-0.5"
                                   />
-                                  <Link href="/compostage">
+                                  <Link href="/composting">
                                     <span className="focus:outline-none text-[1rem] font-light">
                                       En savoir plus
                                     </span>

@@ -171,7 +171,7 @@ const Compost: NextPage = () => {
               </h1>
               <div className="flex flex-col">
                 <button className="bg-greenDTTV transition hover:bg-green-900 dark:hover:bg-orange-600 dark:bg-orangeDTTV text-white p-4 w-60 rounded-full m-auto focus:outline-none">
-                  <Link href="/devis">
+                  <Link href="/quote">
                     <span className="font-normal text-xl focus:outline-none uppercase">
                       Commandez-le ici
                     </span>
