@@ -201,7 +201,7 @@ const Home: NextPage = () => {
                               <h1 className="text-xl font-bold text-orangeDTTV">
                                 {data.content.environementTitle}
                               </h1>
-                              <div className="bg-orangeDTTV w-36 rounded-full m-auto">
+                              <div className="bg-orangeDTTV w-36 rounded-full m-auto focus:outline-none">
                                 <Icons
                                   icons="environement"
                                   className="fill-current text-white h-36"
@@ -215,7 +215,7 @@ const Home: NextPage = () => {
                               <h1 className="text-xl font-bold text-orangeDTTV">
                                 {data.content.socialTitle}
                               </h1>
-                              <div className="bg-orangeDTTV w-36 rounded-full m-auto">
+                              <div className="bg-orangeDTTV w-36 rounded-full m-auto focus:outline-none">
                                 <Icons
                                   icons="together"
                                   className="fill-current text-white h-36"
@@ -229,7 +229,7 @@ const Home: NextPage = () => {
                               <h1 className="text-xl font-bold text-orangeDTTV">
                                 {data.content.CooperationTitle}
                               </h1>
-                              <div className="bg-orangeDTTV w-36 rounded-full m-auto">
+                              <div className="bg-orangeDTTV w-36 rounded-full m-auto focus:outline-none">
                                 <Icons
                                   icons="hand"
                                   className="fill-current text-white h-36"
@@ -302,12 +302,16 @@ const Home: NextPage = () => {
                                 {richText(data.content.collectText)}
                               </p>
                               <div className="justify-center">
-                                <button className="bg-orangeDTTV hover:bg-orange-600 transition text-white p-2 rounded-2xl inline-flex font-medium">
+                                <button className="bg-orangeDTTV hover:bg-orange-600 transition-all text-white px-3 py-2 rounded-2xl inline-flex font-medium focus:outline-none focus:ring-2 ring-orange-500">
                                   <Icons
                                     icons="plus"
                                     className="text-white fill-current w-5 h-5 mr-1 mt-0.5"
                                   />
-                                  <Link href="/collection">En savoir plus</Link>
+                                  <Link href="/collection">
+                                    <span className="focus:outline-none text-[1rem] font-light">
+                                      En savoir plus
+                                    </span>
+                                  </Link>
                                 </button>
                               </div>
                             </div>
@@ -325,13 +329,15 @@ const Home: NextPage = () => {
                                 {richText(data.content.sensibilisationText)}
                               </p>
                               <div className="justify-center">
-                                <button className="bg-orangeDTTV hover:bg-orange-600 transition text-white p-2 rounded-2xl inline-flex font-medium">
+                                <button className="bg-orangeDTTV hover:bg-orange-600 transition-all text-white px-3 py-2 rounded-2xl inline-flex font-medium focus:outline-none focus:ring-2 ring-orange-500">
                                   <Icons
                                     icons="plus"
                                     className="text-white fill-current w-5 h-5 mr-1 mt-0.5"
                                   />
                                   <Link href="/sensitization">
-                                    En savoir plus
+                                    <span className="focus:outline-none text-[1rem] font-light">
+                                      En savoir plus
+                                    </span>
                                   </Link>
                                 </button>
                               </div>
@@ -350,12 +356,16 @@ const Home: NextPage = () => {
                                 {richText(data.content.compostText)}
                               </p>
                               <div className="justify-center">
-                                <button className="bg-orangeDTTV hover:bg-orange-600 transition text-white p-2 rounded-2xl inline-flex font-medium">
+                                <button className="bg-orangeDTTV hover:bg-orange-600 transition-all text-white px-3 py-2 rounded-2xl inline-flex font-medium focus:outline-none focus:ring-2 ring-orange-500">
                                   <Icons
                                     icons="plus"
                                     className="text-white fill-current w-5 h-5 mr-1 mt-0.5"
                                   />
-                                  <Link href="/composting">En savoir plus</Link>
+                                  <Link href="/composting">
+                                    <span className="focus:outline-none text-[1rem] font-light">
+                                      En savoir plus
+                                    </span>
+                                  </Link>
                                 </button>
                               </div>
                             </div>
@@ -393,47 +403,47 @@ const Home: NextPage = () => {
                   </div>
                 </h1>
                 <footer className="relative pt-1 max-w-7xl m-auto">
-                  <div className="container md:container mx-auto px-6">
+                  <div className="container md:container mx-auto px-6 focus:outline-none">
                     <div className="sm:flex sm:mt-8">
                       <div className="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                         <div className="flex flex-col">
-                          <h1 className="text-greenDTTV dark:text-orangeDTTV font-bold text-4xl text-left">
+                          <h1 className="text-greenDTTV dark:text-orangeDTTV font-bold text-4xl text-left focus:outline-none">
                             NOUS APPELER
                           </h1>
                           <a
                             href={`tel:${data.content.number}`}
                             rel="noopener noreferrer"
                             target="_blank"
-                            className="text-left hover:text-orangeDTTV transition p-1 font-light"
+                            className="text-left hover:text-orangeDTTV transition p-1 font-light focus:outline-none"
                           >
                             {data.content.number}
                           </a>
-                          <h1 className="text-greenDTTV dark:text-orangeDTTV font-bold text-4xl text-left">
+                          <h1 className="text-greenDTTV dark:text-orangeDTTV font-bold text-4xl text-left focus:outline-none">
                             NOUS ÉCRIRE
                           </h1>
                           <a
                             href={`mailto:${data.content.mail}`}
                             rel="noopener noreferrer"
                             target="_blank"
-                            className="text-left hover:text-orangeDTTV transition p-1 !font-light"
+                            className="text-left hover:text-orangeDTTV transition p-1 !font-light focus:outline-none"
                           >
                             {data.content.mail}
                           </a>
-                          <h1 className="text-greenDTTV dark:text-orangeDTTV font-bold text-4xl text-left">
+                          <h1 className="text-greenDTTV dark:text-orangeDTTV font-bold text-4xl text-left focus:outline-none">
                             NOUS RENCONTRER
                           </h1>
                           <a
                             href={`${data.content.linkadress}`}
                             rel="noopener noreferrer"
                             target="_blank"
-                            className="text-left hover:text-orangeDTTV transition p-1 !font-light"
+                            className="text-left hover:text-orangeDTTV transition p-1 !font-light focus:outline-none"
                           >
                             {convert(data.content.adress)}
                           </a>
                         </div>
                         <div className="flex flex-col"></div>
                         <div className="flex flex-col space-y-2">
-                          <h1 className="text-3xl text-greenDTTV font-bold dark:text-orangeDTTV">
+                          <h1 className="text-3xl text-greenDTTV font-bold dark:text-orangeDTTV focus:outline-none">
                             SUIVEZ-NOUS
                           </h1>
                           <div className="mt-5 space-y-2">
@@ -445,7 +455,7 @@ const Home: NextPage = () => {
                                 />
                               </div>
                               <a
-                                className="text-xl hover:text-orangeDTTV transition items-center mt-0.5 font-medium"
+                                className="text-xl hover:text-orangeDTTV transition items-center mt-0.5 font-medium focus:outline-none"
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 href={data.content.linkLinkedin}
@@ -461,7 +471,7 @@ const Home: NextPage = () => {
                                 />
                               </div>
                               <a
-                                className="text-xl hover:text-orangeDTTV transition items-center mt-0.5 font-medium"
+                                className="text-xl hover:text-orangeDTTV transition items-center mt-0.5 font-medium focus:outline-none"
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 href={data.content.linkInstagram}
@@ -477,7 +487,7 @@ const Home: NextPage = () => {
                                 />
                               </div>
                               <a
-                                className="text-xl hover:text-orangeDTTV transition items-center mt-0.5 font-medium"
+                                className="text-xl hover:text-orangeDTTV transition items-center mt-0.5 font-medium focus:outline-none"
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 href={data.content.linkFacebook}
