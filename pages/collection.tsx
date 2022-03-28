@@ -9,6 +9,7 @@ import { StoryBlok } from "libs/types";
 import { richText } from "libs/storyblok";
 
 import { Icons } from "components/icons";
+import { cn } from "utils/class";
 
 const Collecte: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -16,10 +17,6 @@ const Collecte: NextPage = () => {
   const [isLoading, setLoading] = useState(true);
 
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
-
-  function cn(...classes: string[]) {
-    return classes.filter(Boolean).join(" ");
-  }
 
   useEffect(() => {
     if (window.innerWidth > 769) {

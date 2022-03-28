@@ -11,6 +11,7 @@ import { richText } from "libs/storyblok";
 import { Icons } from "components/icons";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "utils/class";
 
 const Compost: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -19,10 +20,6 @@ const Compost: NextPage = () => {
   const [isLoading, setLoading] = useState(true);
 
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
-
-  function cn(...classes: string[]) {
-    return classes.filter(Boolean).join(" ");
-  }
 
   useEffect(() => {
     if (window.innerWidth > 769) {

@@ -13,17 +13,13 @@ import { Images } from "data/Images";
 
 import Loading from "components/loading";
 import { Icons } from "components/icons";
+import { cn } from "utils/class";
 
 const Home: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setLoading] = useState(true);
-
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
-
-  function cn(...classes: string[]) {
-    return classes.filter(Boolean).join(" ");
-  }
 
   useEffect(() => {
     if (window.innerWidth > 769) {
