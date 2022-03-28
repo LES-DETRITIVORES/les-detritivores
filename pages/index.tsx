@@ -9,7 +9,7 @@ import Link from "next/link";
 
 import { StoryBlok } from "libs/types";
 import { convert, richText } from "libs/storyblok";
-import { Images } from "data/Images";
+import { Images } from "data/images";
 
 import Loading from "components/loading";
 import { Icons } from "components/icons";
