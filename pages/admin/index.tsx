@@ -1,6 +1,6 @@
 import { Icons } from "components/icons";
 import { Firebase } from "libs/firebase";
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import Slide from "react-reveal/Slide";
 import { Validate } from "libs/validate";
@@ -25,7 +25,7 @@ function Index() {
       }
     });
   }, []);
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLElement>) => {
     e.preventDefault();
     if (!isLoggedIn) {
       setError("Tu dois être connecté pour poster un article");
