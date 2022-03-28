@@ -13,7 +13,14 @@ import { Icons } from "components/icons";
 const Collecte: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+
+  function cn(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+
   useEffect(() => {
     if (window.innerWidth > 769) {
       setIsDesktop(true);
@@ -47,11 +54,15 @@ const Collecte: NextPage = () => {
                       <Image
                         width="320"
                         height="200"
-                        className="!rounded-lg"
+                        className={cn(
+                          "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
+                          isLoading
+                            ? "scale-110 blur-2xl grayscale"
+                            : "scale-100 blur-0 grayscale-0"
+                        )}
                         src="/static/images/DETRI_211007_137.jpg"
-                        loading="lazy"
                         blurDataURL="/static/images/DETRI_211007_137.jpg"
-                        placeholder="blur"
+                        onLoadingComplete={() => setLoading(false)}
                       />
                     </div>
                   </div>
@@ -60,11 +71,15 @@ const Collecte: NextPage = () => {
                       <Image
                         width="320"
                         height="200"
-                        className="!rounded-lg"
+                        className={cn(
+                          "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
+                          isLoading
+                            ? "scale-110 blur-2xl grayscale"
+                            : "scale-100 blur-0 grayscale-0"
+                        )}
                         src="/static/images/DETRI_211007_336.jpg"
                         blurDataURL="/static/images/DETRI_211007_336.jpg"
-                        placeholder="blur"
-                        loading="lazy"
+                        onLoadingComplete={() => setLoading(false)}
                       />
                     </div>
                   </div>
@@ -73,11 +88,15 @@ const Collecte: NextPage = () => {
                       <Image
                         width="320"
                         height="200"
-                        className="!rounded-lg"
+                        className={cn(
+                          "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
+                          isLoading
+                            ? "scale-110 blur-2xl grayscale"
+                            : "scale-100 blur-0 grayscale-0"
+                        )}
                         src="/static/images/IMG_0099.jpg"
                         blurDataURL="/static/images/IMG_0099.jpg"
-                        placeholder="blur"
-                        loading="lazy"
+                        onLoadingComplete={() => setLoading(false)}
                       />
                     </div>
                   </div>
@@ -86,11 +105,15 @@ const Collecte: NextPage = () => {
                       <Image
                         width="320"
                         height="200"
-                        className="!rounded-lg"
+                        className={cn(
+                          "duration-700 ease-in-out group-hover:opacity-75 !rounded-lg",
+                          isLoading
+                            ? "scale-110 blur-2xl grayscale !rounded-lg"
+                            : "scale-100 blur-0 grayscale-0 !rounded-lg"
+                        )}
                         src="/static/images/DETRI_211007_623.jpg"
                         blurDataURL="/static/images/DETRI_211007_623.jpg"
-                        placeholder="blur"
-                        loading="lazy"
+                        onLoadingComplete={() => setLoading(false)}
                       />
                     </div>
                   </div>

@@ -16,7 +16,14 @@ const Compost: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+
+  function cn(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+
   useEffect(() => {
     if (window.innerWidth > 769) {
       setIsDesktop(true);
@@ -90,35 +97,47 @@ const Compost: NextPage = () => {
                     <div className="grid justify-center space-x-0 md:inline-flex md:space-x-2 sm:space-x-0">
                       <div className="w-60">
                         <Image
-                          className="!rounded-2xl"
+                          className={cn(
+                            "duration-700 ease-in-out group-hover:opacity-75 !rounded-2xl",
+                            isLoading
+                              ? "scale-110 blur-2xl grayscale !rounded-2xl"
+                              : "scale-100 blur-0 grayscale-0 !rounded-2xl"
+                          )}
                           width="240"
                           height="180"
                           src="/static/images/DETRI_211007_399.jpg"
                           blurDataURL="/static/images/DETRI_211007_399.jpg"
-                          placeholder="blur"
-                          loading="lazy"
+                          onLoadingComplete={() => setLoading(false)}
                         />
                       </div>
                       <div className="w-60">
                         <Image
-                          className="!rounded-2xl"
+                          className={cn(
+                            "duration-700 ease-in-out group-hover:opacity-75 !rounded-2xl",
+                            isLoading
+                              ? "scale-110 blur-2xl grayscale !rounded-2xl"
+                              : "scale-100 blur-0 grayscale-0 !rounded-2xl"
+                          )}
                           width="240"
                           height="180"
                           src="/static/images/IMG_0553.jpg"
                           blurDataURL="/static/images/IMG_0553.jpg"
-                          loading="lazy"
-                          placeholder="blur"
+                          onLoadingComplete={() => setLoading(false)}
                         />
                       </div>
                       <div className="w-60">
                         <Image
-                          className="!rounded-2xl"
+                          className={cn(
+                            "duration-700 ease-in-out group-hover:opacity-75 !rounded-2xl",
+                            isLoading
+                              ? "scale-110 blur-2xl grayscale !rounded-2xl"
+                              : "scale-100 blur-0 grayscale-0 !rounded-2xl"
+                          )}
                           width="240"
                           height="180"
                           src="/static/images/IMG_0278.jpg"
                           blurDataURL="/static/images/IMG_0278.jpg"
-                          placeholder="blur"
-                          loading="lazy"
+                          onLoadingComplete={() => setLoading(false)}
                         />
                       </div>
                     </div>

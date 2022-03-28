@@ -17,7 +17,14 @@ import { Icons } from "components/icons";
 const Home: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+
   const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+
+  function cn(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+
   useEffect(() => {
     if (window.innerWidth > 769) {
       setIsDesktop(true);
@@ -159,13 +166,17 @@ const Home: NextPage = () => {
                                   className={`!rounded-md ${item.width} ${item.height}`}
                                 >
                                   <Image
-                                    className="!rounded-md object-contain"
+                                    className={cn(
+                                      "duration-700 ease-in-out group-hover:opacity-75 !rounded-md object-contain",
+                                      isLoading
+                                        ? "scale-110 blur-2xl grayscale !rounded-md"
+                                        : "scale-100 blur-0 grayscale-0 !rounded-md"
+                                    )}
                                     src={item.image}
                                     width={item.imageWidth}
                                     height={item.imageHeight}
-                                    loading="lazy"
                                     blurDataURL={item.image}
-                                    placeholder="blur"
+                                    onLoadingComplete={() => setLoading(false)}
                                   />
                                 </div>
                               );

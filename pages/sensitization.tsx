@@ -13,7 +13,13 @@ import { Icons } from "components/icons";
 const Sensibilisation: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { data } = useSWR<StoryBlok>("/api/storyblok", fetcher);
+  const [isLoading, setLoading] = useState(true);
+
+  const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+
+  function cn(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
 
   useEffect(() => {
     if (window.innerWidth > 769) {
@@ -44,13 +50,17 @@ const Sensibilisation: NextPage = () => {
                 <>
                   <div className="flex justify-center">
                     <Image
-                      className="rounded-2xl"
+                      className={cn(
+                        "duration-700 ease-in-out group-hover:opacity-75 !rounded-2xl",
+                        isLoading
+                          ? "scale-110 blur-2xl grayscale !rounded-2xl"
+                          : "scale-100 blur-0 grayscale-0 !rounded-2xl"
+                      )}
                       src="/static/images/IMG_0324[736].jpg"
                       width="750"
                       height="500"
-                      loading="lazy"
                       blurDataURL="/static/images/IMG_0324[736].jpg"
-                      placeholder="blur"
+                      onLoadingComplete={() => setLoading(false)}
                     />
                   </div>
                 </>
