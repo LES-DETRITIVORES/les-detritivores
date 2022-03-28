@@ -54,20 +54,11 @@ h1:before {
 ::-webkit-scrollbar-corner {
   @apply !hidden;
 }
-.fPDpuU {
-  @apply !m-0;
-}
 .fancy {
   @apply w-20 border-solid border-t-4;
 }
-.SfQLQb-QClCJf-giiMnc .i4ewOd-pzNkMb-QClCJf-giiMnc-xJzy8c {
-  @apply hidden;
-}
 .fancy-title {
   @apply w-16 md:w-24 border-solid border-t-4;
-}
-::filter {
-  @apply !rounded-lg;
 }
 img {
   @apply transition duration-300;
@@ -83,32 +74,7 @@ img {
   -webkit-clip-path: polygon(100% 3%, 0 100%, 100% 100%);
   clip-path: polygon(100% 3%, 0 100%, 100% 100%);
 }
-.bg-growing-underline-green {
-  background-size: 7% 0.15em;
-  background-position: 62%;
-  @apply transition-all duration-200 bg-gradient-to-t from-greenDTTV to-greenDTTV dark:bg-gradient-to-t dark:from-orangeDTTV dark:to-orangeDTTV bg-no-repeat -rotate-1 !mt-1 !p-0 !h-2;
-}
-@media only screen and (max-width: 600px) {
-  .bg-growing-underline-green {
-    background-size: 18% 0.15em;
-    background-position: 79% 88%;
-  }
-}
-.bg-growing-underline-orange {
-  background-size: 17% 0.2em;
-  background-position: 100%;
-  @apply transition-all duration-200 bg-gradient-to-t from-orangeDTTV to-orangeDTTV bg-no-repeat -rotate-1 !mt-1 !p-0 !h-2;
-}
-.bg-growing-underline-black {
-  background-size: 6rem 0.2em;
-  background-position: 13rem;
-  @apply transition-all duration-200 bg-gradient-to-t from-black to-black bg-no-repeat -rotate-1 !mt-1 !p-0 !h-2;
-}
-.bg-growing-underline-orange-contact {
-  background-size: 5% 0.2em;
-  background-position: 55%;
-  @apply transition-all duration-200 bg-gradient-to-t from-orangeDTTV to-orangeDTTV bg-no-repeat -rotate-3 !mt-1 !p-0 !h-2;
-}
+
 #nprogress .bar {
   @apply !bg-white;
 }
