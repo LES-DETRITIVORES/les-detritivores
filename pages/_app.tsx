@@ -157,7 +157,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </svg>
                     </Link>
                     <nav
-                      className="flex -mt-5 -rotate-[14deg] sm:-rotate-[10deg] md:-rotate-[4deg] pb-1"
+                      className="flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[4deg] xl:-rotate-[16deg] md:-rotate-[8deg] pb-1"
                       aria-label="Breadcrumb"
                     >
                       <ol
@@ -323,7 +323,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </svg>
                         </Link>
                         <nav
-                          className="flex -mt-5 -rotate-[14deg] sm:-rotate-[10deg] md:-rotate-[4deg] pb-1"
+                          className="flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[4deg] xl:-rotate-[16deg] md:-rotate-[8deg] pb-1"
                           aria-label="Breadcrumb"
                         >
                           <ol
