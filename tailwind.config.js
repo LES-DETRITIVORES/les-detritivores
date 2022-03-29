@@ -14,6 +14,7 @@ module.exports = {
         smph: "320px",
       },
       width: {
+        width: ["responsive", "hover", "focus"],
         250: "53.313rem",
         150: "30rem",
         100: "40rem",

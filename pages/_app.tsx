@@ -49,6 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { data, error } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
   const [play] = useSound(`static/sounds/sound.mp3`);
   const [show, setShow] = useState(false);
+  const [width, setWidth] = useState("");
   useEffect(() => {
     if (typeof window !== "undefined") {
       const cookie = window.localStorage.getItem("modalCookie");
@@ -67,8 +68,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         }, 3500);
       }
       if (!cookie) {
-        window.localStorage.setItem("modalCookie", "true");
+        typeof window !== "undefined" &&
+          window.localStorage.setItem("modalCookie", "true");
       }
+      setWidth("w-full");
     }
   }, []);
   return (
@@ -372,6 +375,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                                     }
                                   >
                                     {page.name}
+                                    <div className="w-1/3 hover:w-full focus-within:w-full transition-all ease-in-out h-0.5 bg-white" />
                                   </a>
                                 </div>
                               </li>
