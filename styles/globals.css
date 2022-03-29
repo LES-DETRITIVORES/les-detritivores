@@ -6,7 +6,7 @@
   }
 }
 html {
-  @apply overflow-x-hidden;
+  @apply overflow-x-hidden select-none;
 }
 body {
   @apply bg-white dark:bg-neutral-900 overflow-x-hidden transition w-screen font-fira font-normal;
