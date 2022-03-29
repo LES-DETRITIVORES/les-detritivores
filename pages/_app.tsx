@@ -36,6 +36,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       current: router.asPath === "/sensitization" ? true : false,
     },
     {
+      name: "Composte",
+      href: "/composting",
+      current: router.asPath === "/composting" ? true : false,
+    },
+    {
       name: "Devis",
       href: "/quote",
       current: router.asPath === "/quote" ? true : false,
