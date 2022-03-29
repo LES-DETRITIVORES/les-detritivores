@@ -195,7 +195,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                                   page.current
                                     ? "text-gray-200"
                                     : "text-gray-50"
-                                } hover:text-gray-100 transition cursor-pointer hover:scale-105`}
+                                } hover:text-gray-100 transition cursor-pointer transform hover:translate-x-2`}
                                 aria-current={page.current ? "page" : undefined}
                               >
                                 {page.name}
@@ -361,7 +361,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                                       page.current
                                         ? "text-gray-200"
                                         : "text-gray-50"
-                                    }  transition cursor-pointer hover:scale-105`}
+                                    }  transition cursor-pointer transform hover:translate-x-2`}
                                     aria-current={
                                       page.current ? "page" : undefined
                                     }
