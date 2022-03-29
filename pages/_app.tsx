@@ -12,6 +12,7 @@ import Slide from "react-reveal/Slide";
 import fetcher from "libs/fetcher";
 
 import ToggleTheme from "components/toggleTheme";
+import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 
 import "nprogress/nprogress.css";
 import { Icons } from "components/icons";
@@ -22,6 +23,24 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const pages = [
+    {
+      name: "Collecte",
+      href: "/collection",
+      current: router.asPath === "/collection" ? true : false,
+    },
+    {
+      name: "Sensibilisation",
+      href: "/sensitization",
+      current: router.asPath === "/sensitization" ? true : false,
+    },
+    {
+      name: "Devis",
+      href: "/quote",
+      current: router.asPath === "/quote" ? true : false,
+    },
+  ];
   const { data, error } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
   const [play] = useSound(`static/sounds/sound.mp3`);
   const [show, setShow] = useState(false);
@@ -47,7 +66,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
     }
   }, []);
-  const router = useRouter();
   return (
     <>
       {router.pathname !== "/admin" && router.pathname !== "/admin/login" && (
@@ -75,7 +93,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           {error ? (
             <>
               <div id="start">
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-4 pb-12">
                   <div className="p-2 space-y-2">
                     <button onClick={() => play()}>
                       <svg
@@ -90,7 +108,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </svg>
                     </button>
                   </div>
-                  <div className="flex justify-center mb-12">
+                  <div className="flex flex-col justify-center items-center">
                     <Link href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +116,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         fill="#fff"
                         width="150"
                         height="150"
-                        className="text-white focus:animate-wiggle hover:animate-wiggle cursor-pointer transition-all"
+                        className="text-white focus:animate-wiggle hover:animate-wiggle cursor-pointer transition-all focus-visible:scale-110 hover:scale-110"
                       >
                         <path d="M96.16,6.73c-.72-1.82-1.72-4.24-4-4.34-2.68-.12-4.33,2.16-5.11,3.68a21.72,21.72,0,0,0-2,12c.46,2.79,3.71,3.39,4.29,5.08s.07,7-.21,8.3c0,0,1.53-2.31,3.86-1.94,0-2.28-.75-4.47-.19-6.74.41-1.65,2.57-2.57,3.62-4.41,1.88-3.31.82-8.68-.34-11.62M92.72,20.54c1.52-2.06,3.94-4.23,3-7.82,0-.25.16-.3.16-.5l.5-.08c.69,3.73-.71,7.07-3.61,8.4" />
                         <path d="M68.21,0c-2.94.42-3.74,9.22-4.1,13.92A113.32,113.32,0,0,0,64,29.79c.14,1.79,1.66,5.17,1.8,6.08,0,0,.65-1.67,3.81-2,.25-2.48.13-18.63.12-26.93,0-2.24.77-7.29-1.49-7m-.12,31.69c-.79.06.35-.54.33-.85.11-1.3-.22-2.95.16-4,.57.92,1.07,4.32-.49,4.88" />
@@ -138,6 +156,55 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <path d="M102.1,68.69l-.19-1.48,66.17-10.94v.22a1.6,1.6,0,0,1-1.36,1.58Z" />
                       </svg>
                     </Link>
+                    <nav
+                      className="flex -mt-5 -rotate-[14deg] sm:-rotate-[10deg] md:-rotate-[4deg] pb-1"
+                      aria-label="Breadcrumb"
+                    >
+                      <ol
+                        role="list"
+                        className="flex items-center space-x-2 md:space-x-4"
+                      >
+                        <li>
+                          <div>
+                            <a
+                              onClick={() => router.push("/")}
+                              className={`text-gray-50 hover:text-gray-100 cursor-pointer transition ${
+                                router.pathname === "/"
+                                  ? "text-gray-200"
+                                  : "text-gray-50"
+                              }`}
+                            >
+                              <HomeIcon
+                                className="flex-shrink-0 h-5 w-5"
+                                aria-hidden="true"
+                              />
+                              <span className="sr-only">Home</span>
+                            </a>
+                          </div>
+                        </li>
+                        {pages.map((page) => (
+                          <li key={page.name}>
+                            <div className="flex items-center">
+                              <ChevronRightIcon
+                                className="flex-shrink-0 h-5 w-5 text-gray-50"
+                                aria-hidden="true"
+                              />
+                              <a
+                                onClick={() => router.push(page.href)}
+                                className={`ml-4 text-sm font-medium ${
+                                  page.current
+                                    ? "text-gray-200"
+                                    : "text-gray-50"
+                                } hover:text-gray-100 transition cursor-pointer hover:scale-105`}
+                                aria-current={page.current ? "page" : undefined}
+                              >
+                                {page.name}
+                              </a>
+                            </div>
+                          </li>
+                        ))}
+                      </ol>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -192,7 +259,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <ThemeProvider defaultTheme="light" attribute="class">
                 <div className="flex flex-col h-screen justify-between">
                   <div id="start">
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-4 pb-16">
                       <div className="p-2 space-y-2">
                         <button onClick={() => play()}>
                           <svg
@@ -207,7 +274,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </svg>
                         </button>
                       </div>
-                      <div className="flex justify-center mb-12">
+                      <div className="flex flex-col justify-center items-center">
                         <Link href="/">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -255,6 +322,57 @@ function MyApp({ Component, pageProps }: AppProps) {
                             <path d="M102.1,68.69l-.19-1.48,66.17-10.94v.22a1.6,1.6,0,0,1-1.36,1.58Z" />
                           </svg>
                         </Link>
+                        <nav
+                          className="flex -mt-5 -rotate-[14deg] sm:-rotate-[10deg] md:-rotate-[4deg] pb-1"
+                          aria-label="Breadcrumb"
+                        >
+                          <ol
+                            role="list"
+                            className="flex items-center space-x-2 md:space-x-4"
+                          >
+                            <li>
+                              <div>
+                                <a
+                                  onClick={() => router.push("/")}
+                                  className={`text-gray-50 hover:text-gray-100 cursor-pointer transition ${
+                                    router.pathname === "/"
+                                      ? "text-gray-200"
+                                      : "text-gray-50"
+                                  }`}
+                                >
+                                  <HomeIcon
+                                    className="flex-shrink-0 h-5 w-5"
+                                    aria-hidden="true"
+                                  />
+                                  <span className="sr-only">Home</span>
+                                </a>
+                              </div>
+                            </li>
+                            {pages.map((page) => (
+                              <li key={page.name}>
+                                <div className="flex items-center">
+                                  <ChevronRightIcon
+                                    className="flex-shrink-0 h-5 w-5 text-gray-50"
+                                    aria-hidden="true"
+                                  />
+                                  <a
+                                    onClick={() => router.push(page.href)}
+                                    className={`ml-4 text-sm font-medium ${
+                                      page.current
+                                        ? "text-gray-200"
+                                        : "text-gray-50"
+                                    }  transition cursor-pointer hover:scale-105`}
+                                    aria-current={
+                                      page.current ? "page" : undefined
+                                    }
+                                  >
+                                    {page.name}
+                                  </a>
+                                </div>
+                              </li>
+                            ))}
+                          </ol>
+                        </nav>
                       </div>
                     </div>
                   </div>

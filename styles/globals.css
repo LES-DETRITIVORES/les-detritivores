@@ -64,7 +64,7 @@ img {
   @apply transition duration-300;
 }
 #start {
-  @apply bg-greenDTTV bg-gradient-to-r from-greenDTTV to-greenDTTV dark:bg-gradient-to-r dark:from-orangeDTTV dark:to-orangeDTTV h-48 border-t-0 text-white pb-1;
+  @apply bg-greenDTTV bg-gradient-to-r from-greenDTTV to-greenDTTV dark:bg-gradient-to-r dark:from-orangeDTTV dark:to-orangeDTTV !h-56 border-t-0 text-white pb-1;
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 42%, 0% 100%) !important;
   clip-path: polygon(0 0, 100% 0%, 100% 42%, 0% 100%) !important;
 }
