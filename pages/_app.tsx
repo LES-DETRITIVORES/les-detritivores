@@ -1,22 +1,22 @@
 import "styles/globals.css";
 
 import type { AppProps } from "next/app";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { ThemeProvider } from "next-themes";
 import useSWR from "swr";
 import Link from "next/link";
 import useSound from "use-sound";
 import NProgress from "nprogress";
 import { Router, useRouter } from "next/router";
-import Slide from "react-reveal/Slide";
 import fetcher from "libs/fetcher";
 
 import ToggleTheme from "components/toggleTheme";
-import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon, HomeIcon, XIcon } from "@heroicons/react/solid";
 
 import "nprogress/nprogress.css";
-import { Icons } from "components/icons";
 import { StoryBlok } from "libs/types";
+import { Transition } from "@headlessui/react";
+import { CheckCircleIcon } from "@heroicons/react/outline";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -49,7 +49,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { data, error } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
   const [play] = useSound(`static/sounds/sound.mp3`);
   const [show, setShow] = useState(false);
-  const [width, setWidth] = useState("");
   useEffect(() => {
     if (typeof window !== "undefined") {
       const cookie = window.localStorage.getItem("modalCookie");
@@ -58,7 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         setInterval(() => {
           setShow(true);
         }, 3500);
-        setInterval(() => {
+        setTimeout(() => {
           setShow(false);
         }, 3500);
       }
@@ -68,36 +67,63 @@ function MyApp({ Component, pageProps }: AppProps) {
         }, 3500);
       }
       if (!cookie) {
-        typeof window !== "undefined" &&
-          window.localStorage.setItem("modalCookie", "true");
+        window.localStorage.setItem("modalCookie", "true");
       }
-      setWidth("w-full");
     }
   }, []);
   return (
     <>
       {router.pathname !== "/admin" && router.pathname !== "/admin/login" && (
         <>
-          {show && (
-            <Slide top>
-              <div className="absolute p-6 max-w-sm bg-white dark:bg-neutral-900 rounded-xl shadow-lg shadow-greenDTTV dark:shadow-orangeDTTV flex justify-start mx-2 my-2 items-center space-x-4 z-50">
-                <div className="shrink-0">
-                  <Icons
-                    icons="logo"
-                    className="h-12 w-12 fill-current text-black dark:text-white"
-                  />
-                </div>
-                <div>
-                  <div className="text-xl font-medium text-black dark:text-white">
-                    Bienvenue !
+          <div
+            aria-live="assertive"
+            className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+          >
+            <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
+              <Transition
+                show={show}
+                as={Fragment}
+                enter="transform ease-out duration-300 transition"
+                enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+                enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+                leave="transition ease-in duration-100"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+                  <div className="p-4">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <CheckCircleIcon
+                          className="h-6 w-6 text-green-400"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div className="ml-3 w-0 flex-1 pt-0.5">
+                        <p className="text-sm font-medium text-gray-900">
+                          Bienvenue !
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500">
+                          Psst... Notre site est en cours de développement
+                        </p>
+                      </div>
+                      <div className="ml-4 flex-shrink-0 flex">
+                        <button
+                          className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          onClick={() => {
+                            setShow(false);
+                          }}
+                        >
+                          <span className="sr-only">Close</span>
+                          <XIcon className="h-5 w-5" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-neutral-500 dark:text-neutral-50">
-                    Psst... Notre site est en cours de développement
-                  </p>
                 </div>
-              </div>
-            </Slide>
-          )}
+              </Transition>
+            </div>
+          </div>
           {error ? (
             <>
               <div id="start">

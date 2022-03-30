@@ -52,8 +52,8 @@ const Quote: NextPage = () => {
       setIsError(true);
     } else {
       setError("");
-      setSuccess(true);
       setIsError(false);
+      setSuccess(true);
     }
 
     fetch(`/api/send`, {
@@ -73,7 +73,9 @@ const Quote: NextPage = () => {
         structure,
         message,
       }),
-    }).then((response) => response.json());
+    })
+      .then((response) => response.json())
+      .then((body) => console.log(body));
   };
   useEffect(() => {
     if (window.innerWidth > 769) {

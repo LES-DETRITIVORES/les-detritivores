@@ -23,11 +23,10 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
     html: `[Devis] <br/><br/> Vous êtes: ${req.body.who} <br/> Nombre de repas servis par j: ${req.body.numbers} <br /> Structure: ${req.body.struct}<br /> Fonction: ${req.body.fonction}<br /> Nom: ${req.body.name}<br /> Prénom: ${req.body.lastName}<br /> Email: ${req.body.email}<br /> Téléphone: ${req.body.phone}<br /><br />${req.body.message}`,
   };
 
-  transporter.sendMail(mailData, function (err, info) {
+  transporter.sendMail(mailData, (err: any, info: any) => {
     if (err) console.log(err);
     else console.log(info);
   });
 
-  console.log(req.body);
-  res.send("success");
+  res.send("data sent");
 }
