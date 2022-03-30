@@ -369,13 +369,13 @@ function MyApp({ Component, pageProps }: AppProps) {
                                       page.current
                                         ? "text-gray-200"
                                         : "text-gray-50"
-                                    }  transition cursor-pointer transform hover:translate-x-2`}
+                                    }  transition cursor-pointer transform hover:translate-x-2 group`}
                                     aria-current={
                                       page.current ? "page" : undefined
                                     }
                                   >
                                     {page.name}
-                                    <div className="w-1/3 hover:w-full focus-within:w-full transition-all ease-in-out h-0.5 bg-white" />
+                                    <div className="w-0 group-hover:w-full focus-within:w-full transition-all ease-in-out h-0.5 bg-white" />
                                   </a>
                                 </div>
                               </li>
