@@ -101,7 +101,7 @@ const Quote: NextPage = () => {
     <>
       <div
         aria-live="assertive"
-        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start z-50"
       >
         <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
           <Transition
@@ -288,6 +288,7 @@ const Quote: NextPage = () => {
                   <textarea
                     className="w-full h-auto px-3 py-2 focus:outline-none bg-white dark:bg-neutral-900 border-2 border-orangeDTTV w-26 p-3 rounded-md transition text-black dark:text-white"
                     autoComplete="off"
+                    rows={5}
                     onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
                       setMessage(e.target.value)
                     }
