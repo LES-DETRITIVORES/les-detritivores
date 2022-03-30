@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       current: router.asPath === "/quote" ? true : false,
     },
   ];
-  const { data, error } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+  const { data, error } = useSWR<StoryBlok>("/api/storyblok", fetcher);
   const [play] = useSound(`static/sounds/sound.mp3`);
   const [show, setShow] = useState(false);
   useEffect(() => {

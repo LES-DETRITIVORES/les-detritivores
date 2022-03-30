@@ -19,7 +19,7 @@ import { richText } from "libs/storyblok";
 const Quote: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+  const { data } = useSWR<StoryBlok>("/api/storyblok", fetcher);
 
   const [who, setWho] = useState("");
   const [numbers, setNumbers] = useState("");

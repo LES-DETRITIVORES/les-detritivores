@@ -20,7 +20,7 @@ const Compost: NextPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setLoading] = useState(true);
 
-  const { data } = useSWR<StoryBlok>(`/api/storyblok`, fetcher);
+  const { data } = useSWR<StoryBlok>("/api/storyblok", fetcher);
 
   useEffect(() => {
     if (window.innerWidth > 769) {
