@@ -1,3 +1,4 @@
+import { Data } from "libs/types";
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
@@ -14,19 +15,44 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
       pass: "Brazza33!",
     },
   });
+  const {
+    name,
+    who,
+    numbers,
+    structure,
+    dfunction,
+    lastname,
+    phone,
+    message,
+    email,
+  }: Data = req.body;
+  if (req.body.type === "compost") {
+    const mailData = {
+      from: "bonjour@les-detritivores.co",
+      to: email,
+      subject: `Message From ${name}`,
+      text: `[Devis] \n\n Vous êtes: ${who} \n Nombre de repas servis par j: ${numbers} \n Structure: ${structure}\n Fonction: ${dfunction}\n Nom: ${name}\n Prénom: ${lastname}\n Email: ${email}\n Téléphone: ${phone}\n\n${message}`,
+      html: `[Devis] <br/><br/> Vous êtes: ${who} <br/> Nombre de repas servis par j: ${numbers} <br /> Structure: ${structure}<br /> Fonction: ${dfunction}<br /> Nom: ${name}<br /> Prénom: ${lastname}<br /> Email: ${email}<br /> Téléphone: ${phone}<br /><br />${message}`,
+    };
 
-  const mailData = {
-    from: "bonjour@les-detritivores.co",
-    to: req.body.email,
-    subject: `Message From ${req.body.name}`,
-    text: `[Devis] \n\n Vous êtes: ${req.body.who} \n Nombre de repas servis par j: ${req.body.numbers} \n Structure: ${req.body.struct}\n Fonction: ${req.body.fonction}\n Nom: ${req.body.name}\n Prénom: ${req.body.lastName}\n Email: ${req.body.email}\n Téléphone: ${req.body.phone}\n\n${req.body.message}`,
-    html: `[Devis] <br/><br/> Vous êtes: ${req.body.who} <br/> Nombre de repas servis par j: ${req.body.numbers} <br /> Structure: ${req.body.struct}<br /> Fonction: ${req.body.fonction}<br /> Nom: ${req.body.name}<br /> Prénom: ${req.body.lastName}<br /> Email: ${req.body.email}<br /> Téléphone: ${req.body.phone}<br /><br />${req.body.message}`,
-  };
+    transporter.sendMail(mailData, (err: any, info: any) => {
+      if (err) console.log(err);
+      else console.log(info);
+    });
+  } else if (req.body.type === "client") {
+    const mailData = {
+      from: "bonjour@les-detritivores.co",
+      to: email,
+      subject: `Message test one ${name}`,
+      text: `[Devis] \n\n Vous êtes: ${who} \n Nombre de repas servis par j: ${numbers} \n Structure: ${structure}\n Fonction: ${dfunction}\n Nom: ${name}\n Prénom: ${lastname}\n Email: ${email}\n Téléphone: ${phone}\n\n${message}`,
+      html: `[Devis] <br/><br/> Vous êtes: ${who} <br/> Nombre de repas servis par j: ${numbers} <br /> Structure: ${structure}<br /> Fonction: ${dfunction}<br /> Nom: ${name}<br /> Prénom: ${lastname}<br /> Email: ${email}<br /> Téléphone: ${phone}<br /><br />${message}`,
+    };
 
-  transporter.sendMail(mailData, (err: any, info: any) => {
-    if (err) console.log(err);
-    else console.log(info);
-  });
+    transporter.sendMail(mailData, (err: any, info: any) => {
+      if (err) console.log(err);
+      else console.log(info);
+    });
+  }
 
   res.send("data sent");
 }

@@ -49,3 +49,15 @@ export type StoryBlok = {
     titleSectionSensibilisation: string;
   };
 };
+
+export type Data = {
+  name: string;
+  email: string;
+  message: string;
+  structure: string;
+  dfunction: string;
+  phone: string;
+  lastname: string;
+  who: string;
+  numbers: string;
+};

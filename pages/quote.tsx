@@ -84,6 +84,7 @@ const Quote: NextPage = () => {
         lastname,
         structure,
         message,
+        type: "compost",
       }),
     }).then((response) => response.json());
   };

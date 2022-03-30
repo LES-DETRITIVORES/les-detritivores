@@ -84,6 +84,7 @@ const Quote: NextPage = () => {
         lastname,
         structure,
         message,
+        type: "client",
       }),
     })
       .then((response) => response.json())
