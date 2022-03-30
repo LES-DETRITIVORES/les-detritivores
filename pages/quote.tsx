@@ -15,6 +15,7 @@ import { XIcon } from "@heroicons/react/solid";
 import fetcher from "libs/fetcher";
 import { StoryBlok } from "libs/types";
 import { richText } from "libs/storyblok";
+import { Validator } from "utils/validator";
 
 const Quote: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -36,16 +37,27 @@ const Quote: NextPage = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const validate = new Validator();
+    if (!validate.isEmail(email)) {
+      setError("Votre email n'est pas valide");
+      setIsError(true);
+      return;
+    }
+    if (!validate.isPhone(phone)) {
+      setError("Votre numéro de téléphone n'est pas valide");
+      setIsError(true);
+      return;
+    }
     if (
-      who === "" ||
-      numbers === "" ||
-      dfunction === "" ||
-      email === "" ||
-      phone === "" ||
-      name === "" ||
-      lastname === "" ||
-      structure === "" ||
-      message === ""
+      validate.isEmpty(who) ||
+      validate.isEmpty(numbers) ||
+      validate.isEmpty(dfunction) ||
+      validate.isEmpty(email) ||
+      validate.isEmpty(phone) ||
+      validate.isEmpty(name) ||
+      validate.isEmpty(lastname) ||
+      validate.isEmpty(structure) ||
+      validate.isEmpty(message)
     ) {
       setError("Veuillez remplir tous les champs");
       setSuccess(false);
