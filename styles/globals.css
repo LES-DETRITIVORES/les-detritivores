@@ -69,6 +69,11 @@ img {
   clip-path: polygon(0 0, 100% 0%, 100% 42%, 0% 100%) !important;
 }
 
+#menu {
+  @apply bg-rose-500 !h-full text-white;
+  clip-path: polygon(0 0, 100% 0%, 100% 42%, 0% 100%) !important;
+}
+
 #footer {
   @apply bg-greenDTTV bg-gradient-to-r from-greenDTTV to-greenDTTV dark:bg-gradient-to-r dark:from-orangeDTTV dark:to-orangeDTTV md:w-auto border-t-0 text-white;
   -webkit-clip-path: polygon(100% 3%, 0 100%, 100% 100%);

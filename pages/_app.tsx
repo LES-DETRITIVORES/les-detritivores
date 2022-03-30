@@ -11,7 +11,7 @@ import { Router, useRouter } from "next/router";
 import fetcher from "libs/fetcher";
 
 import ToggleTheme from "components/toggleTheme";
-import { ChevronRightIcon, HomeIcon, XIcon } from "@heroicons/react/solid";
+import { ChevronDoubleLeftIcon, XIcon } from "@heroicons/react/solid";
 
 import "nprogress/nprogress.css";
 import { StoryBlok } from "libs/types";
@@ -23,8 +23,14 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
   const pages = [
+    {
+      name: "Accueil",
+      href: "/",
+      current: router.asPath === "/" ? true : false,
+    },
     {
       name: "Collecte",
       href: "/collection",
@@ -49,6 +55,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { data, error } = useSWR<StoryBlok>("/api/storyblok", fetcher);
   const [play] = useSound(`static/sounds/sound.mp3`);
   const [show, setShow] = useState(false);
+  const menuTransition = {
+    in: {
+      opacity: 1,
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+      x: -100,
+    },
+  };
   useEffect(() => {
     if (typeof window !== "undefined") {
       const cookie = window.localStorage.getItem("modalCookie");
@@ -308,38 +324,16 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </svg>
                         </Link>
                         <nav
-                          className="flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[3.5deg] xl:-rotate-[16deg] md:-rotate-[8deg] pb-1"
+                          className="hidden md:flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[3.5deg] xl:-rotate-[5deg] md:-rotate-[8deg] pb-1"
                           aria-label="Breadcrumb"
                         >
                           <ol
                             role="list"
                             className="flex items-center space-x-2 md:space-x-4"
                           >
-                            <li>
-                              <div>
-                                <a
-                                  onClick={() => router.push("/")}
-                                  className={`text-gray-50 hover:text-gray-100 cursor-pointer transition ${
-                                    router.pathname === "/"
-                                      ? "text-gray-200"
-                                      : "text-gray-50"
-                                  }`}
-                                >
-                                  <HomeIcon
-                                    className="flex-shrink-0 h-5 w-5"
-                                    aria-hidden="true"
-                                  />
-                                  <span className="sr-only">Home</span>
-                                </a>
-                              </div>
-                            </li>
                             {pages.map((page, index) => (
                               <li key={page.name}>
                                 <div className="flex items-center" key={index}>
-                                  <ChevronRightIcon
-                                    className="flex-shrink-0 h-5 w-5 text-gray-50"
-                                    aria-hidden="true"
-                                  />
                                   <a
                                     onClick={() => router.push(page.href)}
                                     className={`ml-4 text-sm font-medium ${
@@ -362,8 +356,52 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </ol>
                         </nav>
                       </div>
+                      <div
+                        className={`flex justify-end items-start md:px-2 md:py-2`}
+                      >
+                        <div className="flex items-center">
+                          <button
+                            onClick={() =>
+                              showMenu ? setShowMenu(false) : setShowMenu(true)
+                            }
+                            className={`px-2 py-2`}
+                          >
+                            <ChevronDoubleLeftIcon className="h-8 w-8 text-white flex md:hidden" />
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <Transition
+                    show={showMenu}
+                    enter="transform ease-out duration-300 transition"
+                    enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+                    enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+                    leave="transition ease-in duration-100"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                    className={`${showMenu && "py-2"}`}
+                    id="menu"
+                  >
+                    {pages.map((page) => (
+                      <div className="flex flex-wrap items-center justify-center">
+                        <div className="flex items-center" key={page.name}>
+                          <a
+                            onClick={() => router.push(page.href)}
+                            className={`ml-4 text-sm font-medium ${
+                              page.current ? "text-gray-200" : "text-gray-50"
+                            }  transition cursor-pointer transform hover:translate-x-2 group`}
+                            aria-current={page.current ? "page" : undefined}
+                          >
+                            {page.name}
+                            <div className="flex items-center justify-center">
+                              <div className="w-0 group-hover:w-full transition-all duration-500 ease-in-out h-0.5 bg-white rounded-lg" />
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </Transition>
                   <Component {...pageProps} />
                   <footer id="footer">
                     <div className="grid grid-cols-2 gap-4 justify-end items-center">
