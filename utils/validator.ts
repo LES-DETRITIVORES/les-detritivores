@@ -5,7 +5,7 @@ export class Validator {
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-  isEmpty(value: any): boolean {
+  isEmpty(value: string): boolean {
     if (value === undefined || value === null || value === "") {
       return true;
     }
@@ -16,7 +16,7 @@ export class Validator {
     return re.test(String(phone).toLowerCase());
   }
 
-  checkForm(form: any, rules: any): boolean {
+  checkForm(form: [], rules: []): boolean {
     let isValid = true;
     for (const key in rules) {
       if (rules.hasOwnProperty(key)) {
@@ -34,7 +34,7 @@ export class Validator {
     }
     return isValid;
   }
-  isValid(value: any, rules: any): boolean {
+  isValid(value: string, rules: any): boolean {
     let valid = true;
     if (rules.required) {
       valid = valid && !this.isEmpty(value);
