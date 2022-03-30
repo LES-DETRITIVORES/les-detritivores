@@ -35,9 +35,9 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
       html: `[Devis] <br/><br/> Vous êtes: ${who} <br/> Nombre de repas servis par j: ${numbers} <br /> Structure: ${structure}<br /> Fonction: ${dfunction}<br /> Nom: ${name}<br /> Prénom: ${lastname}<br /> Email: ${email}<br /> Téléphone: ${phone}<br /><br />${message}`,
     };
 
-    transporter.sendMail(mailData, (err: any, info: any) => {
-      if (err) console.log(err);
-      else console.log(info);
+    transporter.sendMail(mailData, (err: any) => {
+      if (err) res.status(500).json({ error: err });
+      else res.status(200).json({ message: "success" });
     });
   } else if (req.body.type === "client") {
     const mailData = {
@@ -48,11 +48,9 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
       html: `[Devis] <br/><br/> Vous êtes: ${who} <br/> Nombre de repas servis par j: ${numbers} <br /> Structure: ${structure}<br /> Fonction: ${dfunction}<br /> Nom: ${name}<br /> Prénom: ${lastname}<br /> Email: ${email}<br /> Téléphone: ${phone}<br /><br />${message}`,
     };
 
-    transporter.sendMail(mailData, (err: any, info: any) => {
-      if (err) console.log(err);
-      else console.log(info);
+    transporter.sendMail(mailData, (err: any) => {
+      if (err) res.status(500).json({ error: err });
+      else res.status(200).json({ message: "success" });
     });
   }
-
-  res.send("data sent");
 }
