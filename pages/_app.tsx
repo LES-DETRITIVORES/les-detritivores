@@ -307,9 +307,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                                 </a>
                               </div>
                             </li>
-                            {pages.map((page) => (
+                            {pages.map((page, index) => (
                               <li key={page.name}>
-                                <div className="flex items-center">
+                                <div className="flex items-center" key={index}>
                                   <ChevronRightIcon
                                     className="flex-shrink-0 h-5 w-5 text-gray-50"
                                     aria-hidden="true"
