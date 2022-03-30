@@ -116,7 +116,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </svg>
                     </button>
                   </div>
-                  <div className="flex flex-col justify-center items-center">
+                  <div className="flex justify-center items-center">
                     <Link href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -164,55 +164,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <path d="M102.1,68.69l-.19-1.48,66.17-10.94v.22a1.6,1.6,0,0,1-1.36,1.58Z" />
                       </svg>
                     </Link>
-                    <nav
-                      className="flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[4deg] xl:-rotate-[16deg] md:-rotate-[8deg] pb-1"
-                      aria-label="Breadcrumb"
-                    >
-                      <ol
-                        role="list"
-                        className="flex items-center space-x-2 md:space-x-4"
-                      >
-                        <li>
-                          <div>
-                            <a
-                              onClick={() => router.push("/")}
-                              className={`text-gray-50 hover:text-gray-100 cursor-pointer transition ${
-                                router.pathname === "/"
-                                  ? "text-gray-200"
-                                  : "text-gray-50"
-                              }`}
-                            >
-                              <HomeIcon
-                                className="flex-shrink-0 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                              <span className="sr-only">Home</span>
-                            </a>
-                          </div>
-                        </li>
-                        {pages.map((page) => (
-                          <li key={page.name}>
-                            <div className="flex items-center">
-                              <ChevronRightIcon
-                                className="flex-shrink-0 h-5 w-5 text-gray-50"
-                                aria-hidden="true"
-                              />
-                              <a
-                                onClick={() => router.push(page.href)}
-                                className={`ml-4 text-sm font-medium ${
-                                  page.current
-                                    ? "text-gray-200"
-                                    : "text-gray-50"
-                                } hover:text-gray-100 transition cursor-pointer transform hover:translate-x-2`}
-                                aria-current={page.current ? "page" : undefined}
-                              >
-                                {page.name}
-                              </a>
-                            </div>
-                          </li>
-                        ))}
-                      </ol>
-                    </nav>
                   </div>
                 </div>
               </div>
@@ -331,7 +282,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </svg>
                         </Link>
                         <nav
-                          className="flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[4deg] xl:-rotate-[16deg] md:-rotate-[8deg] pb-1"
+                          className="flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[3.5deg] xl:-rotate-[16deg] md:-rotate-[8deg] pb-1"
                           aria-label="Breadcrumb"
                         >
                           <ol
