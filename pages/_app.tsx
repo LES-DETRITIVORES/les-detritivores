@@ -326,7 +326,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                                     }
                                   >
                                     {page.name}
-                                    <div className="w-0 group-hover:w-full transition-all ease-in-out h-0.5 bg-white rounded-lg" />
+                                    <div className="w-0 group-hover:w-full transition-all duration-500 ease-in-out h-0.5 bg-white rounded-lg" />
                                   </a>
                                 </div>
                               </li>
