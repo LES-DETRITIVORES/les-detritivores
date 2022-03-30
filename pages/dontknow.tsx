@@ -196,8 +196,8 @@ const Quote: NextPage = () => {
         delay={500}
         distance="30px"
       >
-        <div className="max-w-screen my-3 justify-center content-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-2 mx-0 sm:mx-5 md:mx-5 my-2 space-x-10">
+        <div className="my-3 justify-center content-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 sm:grid-cols-1 mx-0 sm:mx-5 md:mx-5 my-2 space-x-10">
             <div className="flex justify-center">
               <form
                 className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 xl:w-100 md:w-96 sm:grid-cols-1 gap-x-2 gap-y-3 justify-center"
@@ -296,16 +296,17 @@ const Quote: NextPage = () => {
                   />
                   <div className="flex justify-center items-center p-2">
                     <button
-                      className="bg-orangeDTTV transition hover:bg-orange-600 p-2 rounded-3xl text-white hover:ring-2 focus:ring-2 ring-orange-300 focus:outline-none"
                       type="submit"
+                      className="rounded-full relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-500 to-orange-600 border-orangeDTTV text-white"
                     >
-                      <span className="font-normal text-sm">Envoyer</span>
+                      <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                      <span className="relative text-[15px]">Envoyer</span>
                     </button>
                   </div>
                 </div>
               </form>
             </div>
-            <div className="flex flex-col space-x-10">
+            <div className="flex flex-col space-x-10 hidden">
               {data ? (
                 <>
                   <div className="space-y-4">
