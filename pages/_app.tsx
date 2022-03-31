@@ -458,7 +458,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                                                 onClick={() =>
                                                   router.push(page.href)
                                                 }
-                                                className={`ml-4 text-sm font-medium ${
+                                                className={`ml-4 text-md font-medium ${
                                                   page.current
                                                     ? "text-gray-900"
                                                     : "text-gray-800"
