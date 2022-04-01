@@ -12,7 +12,6 @@ type AlertProps = {
   alertMessage: string;
   action: () => void;
   state?: "success" | "warning" | "info" | "error";
-  onClose?: () => void;
 };
 const Alert = ({ show, message, alertMessage, action, state }: AlertProps) => {
   return (
