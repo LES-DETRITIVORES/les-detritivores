@@ -11,7 +11,7 @@ type AlertProps = {
   message: string;
   alertMessage: string;
   action: () => void;
-  state?: "success" | "warning" | "error";
+  state?: "success" | "warning" | "info" | "error";
   onClose?: () => void;
 };
 const Alert = ({ show, message, alertMessage, action, state }: AlertProps) => {
@@ -44,6 +44,12 @@ const Alert = ({ show, message, alertMessage, action, state }: AlertProps) => {
                   {state === "warning" && (
                     <ExclamationCircleIcon
                       className="h-6 w-6 text-orange-400"
+                      aria-hidden="true"
+                    />
+                  )}
+                  {state === "info" && (
+                    <ExclamationCircleIcon
+                      className="h-6 w-6 text-sky-400"
                       aria-hidden="true"
                     />
                   )}

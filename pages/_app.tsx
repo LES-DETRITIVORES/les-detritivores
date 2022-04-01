@@ -56,25 +56,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [play] = useSound(`static/sounds/sound.mp3`);
   const [show, setShow] = useState(false);
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const cookie = window.localStorage.getItem("modalCookie");
-      if (cookie === null) {
-        window.localStorage.setItem("modalCookie", "true");
+    const cookie = window.localStorage.getItem("modalCookie");
+    switch (cookie) {
+      case null:
+        typeof window !== "undefined" &&
+          window.localStorage.setItem("modalCookie", "true");
         setInterval(() => {
           setShow(true);
         }, 3500);
-        setTimeout(() => {
-          setShow(false);
-        }, 3500);
-      }
-      if (cookie === "true") {
-        setInterval(() => {
-          setShow(false);
-        }, 3500);
-      }
-      if (!cookie) {
-        window.localStorage.setItem("modalCookie", "true");
-      }
+        break;
+      case "true":
+        if (cookie) {
+          setInterval(() => {
+            setShow(false);
+          }, 3500);
+        } else {
+          typeof window !== "undefined" &&
+            window.localStorage.setItem("modalCookie", "true");
+        }
+        break;
     }
   }, []);
   return (
@@ -86,7 +86,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             alertMessage="Psst ..."
             message="Le site est en cours de développement"
             action={() => setShow(false)}
-            state="warning"
+            state="info"
           />
           {error ? (
             <>
