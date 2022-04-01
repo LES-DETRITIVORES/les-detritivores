@@ -341,7 +341,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </svg>
                         </Link>
                         <nav
-                          className="hidden md:flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[3.5deg] xl:-rotate-[5deg] md:-rotate-[8deg] pb-1"
+                          className="hidden md:flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[5deg] xl:-rotate-[5deg] md:-rotate-[8deg] pb-1"
                           aria-label="Breadcrumb"
                         >
                           <ol
