@@ -455,9 +455,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                                               key={index}
                                             >
                                               <a
-                                                onClick={() =>
-                                                  router.push(page.href)
-                                                }
+                                                onClick={() => {
+                                                  router.push(page.href);
+                                                  setShowMenu(false);
+                                                }}
                                                 className={`ml-4 text-md font-medium ${
                                                   page.current
                                                     ? "text-gray-900"
