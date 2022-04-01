@@ -154,6 +154,7 @@ const Home: NextPage = () => {
                     <div className="slider">
                       <div className="slide-track">
                         {
+                          // TODO: refactor this
                           new Set(
                             Images.map((item, index) => {
                               return (
