@@ -54,27 +54,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   ];
   const { data, error } = useSWR<StoryBlok>("/api/storyblok", fetcher);
   const [play] = useSound(`static/sounds/sound.mp3`);
-  const [show, setShow] = useState(false);
+  const [oneTap, setOneTap] = useState(false);
   useEffect(() => {
-    const cookie = window.localStorage.getItem("modalCookie");
-    switch (cookie) {
-      case null:
-        typeof window !== "undefined" &&
-          window.localStorage.setItem("modalCookie", "true");
-        setInterval(() => {
-          setShow(true);
-        }, 3500);
-        break;
-      case "true":
-        if (cookie) {
-          setInterval(() => {
-            setShow(false);
-          }, 3500);
-        } else {
-          typeof window !== "undefined" &&
-            window.localStorage.setItem("modalCookie", "true");
-        }
-        break;
+    if (!oneTap) {
+      localStorage.setItem("oneTap", "ok");
+      setOneTap(true);
+    }
+    if (oneTap) {
+      localStorage.getItem("oneTap");
+      setOneTap(false);
     }
   }, []);
   return (
@@ -82,10 +70,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       {router.pathname !== "/admin" && router.pathname !== "/admin/login" && (
         <>
           <Alert
-            show={show}
+            show={oneTap}
             alertMessage="Psst ..."
             message="Le site est en cours de développement"
-            action={() => setShow(false)}
+            action={() => setOneTap(false)}
             state="info"
           />
           {error ? (
