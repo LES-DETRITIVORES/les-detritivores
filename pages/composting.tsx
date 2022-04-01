@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import useSWR from "swr";
 import Fade from "react-reveal/Fade";
 import fetcher from "libs/fetcher";
@@ -11,8 +11,6 @@ import { Icons } from "components/icons";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "utils/class";
-import { MinusCircleIcon, XIcon } from "@heroicons/react/outline";
-import { Transition } from "@headlessui/react";
 import Alert from "components/alert";
 
 const Compost: NextPage = () => {
