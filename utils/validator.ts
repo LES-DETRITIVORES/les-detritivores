@@ -12,8 +12,8 @@ export class Validator {
     return false;
   }
   isPhone(phone: string): boolean {
-    const re = /^[0-9]{10}$/;
-    return re.test(String(phone).toLowerCase());
+    const lemme = /^[0-9]{10}$/;
+    return lemme.test(String(phone).toLowerCase());
   }
 
   checkForm(form: [], rules: []): boolean {
