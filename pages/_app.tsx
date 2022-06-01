@@ -94,7 +94,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </svg>
                     </button>
                   </div>
-                  <div className="flex justify-center items-center">
+                  <div className="flex items-center justify-center">
                     <Link href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         fill="#fff"
                         width="150"
                         height="150"
-                        className="text-white focus:animate-wiggle hover:animate-wiggle cursor-pointer transition-all focus-visible:scale-110 hover:scale-110"
+                        className="text-white transition-all cursor-pointer focus:animate-wiggle hover:animate-wiggle focus-visible:scale-110 hover:scale-110"
                       >
                         <path d="M96.16,6.73c-.72-1.82-1.72-4.24-4-4.34-2.68-.12-4.33,2.16-5.11,3.68a21.72,21.72,0,0,0-2,12c.46,2.79,3.71,3.39,4.29,5.08s.07,7-.21,8.3c0,0,1.53-2.31,3.86-1.94,0-2.28-.75-4.47-.19-6.74.41-1.65,2.57-2.57,3.62-4.41,1.88-3.31.82-8.68-.34-11.62M92.72,20.54c1.52-2.06,3.94-4.23,3-7.82,0-.25.16-.3.16-.5l.5-.08c.69,3.73-.71,7.07-3.61,8.4" />
                         <path d="M68.21,0c-2.94.42-3.74,9.22-4.1,13.92A113.32,113.32,0,0,0,64,29.79c.14,1.79,1.66,5.17,1.8,6.08,0,0,.65-1.67,3.81-2,.25-2.48.13-18.63.12-26.93,0-2.24.77-7.29-1.49-7m-.12,31.69c-.79.06.35-.54.33-.85.11-1.3-.22-2.95.16-4,.57.92,1.07,4.32-.49,4.88" />
@@ -148,8 +148,8 @@ function MyApp({ Component, pageProps }: AppProps) {
               <div className="container mx-auto">
                 <div className="flex justify-center my-20">
                   <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="space-y-1 mx-10">
-                      <h3 className="font-medium font-fira text-3xl lg:text-5xl text-orangeDTTV">
+                    <div className="mx-10 space-y-1">
+                      <h3 className="text-3xl font-medium font-fira lg:text-5xl text-orangeDTTV">
                         Erreur côté du serveur
                       </h3>
                       <p className="text-lg lg:text-xl text-neutral-600">
@@ -194,24 +194,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                 {data && !error ? data?.content.Title : "Chargement..."}
               </title>
               <ThemeProvider defaultTheme="light" attribute="class">
-                <div className="flex flex-col h-screen justify-between">
+                <div className="flex flex-col justify-between h-screen">
                   <div id="start">
-                    <div className="grid grid-cols-3 gap-4 pb-16">
-                      <div className="p-2 space-y-2">
-                        <button onClick={() => play()}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512"
-                            className="w-7 h-7"
-                          >
-                            <path
-                              fill="currentColor"
-                              d="M216 260c0 15.464-12.536 28-28 28s-28-12.536-28-28c0-44.112 35.888-80 80-80s80 35.888 80 80c0 15.464-12.536 28-28 28s-28-12.536-28-28c0-13.234-10.767-24-24-24s-24 10.766-24 24zm24-176c-97.047 0-176 78.953-176 176 0 15.464 12.536 28 28 28s28-12.536 28-28c0-66.168 53.832-120 120-120s120 53.832 120 120c0 75.164-71.009 70.311-71.997 143.622L288 404c0 28.673-23.327 52-52 52-15.464 0-28 12.536-28 28s12.536 28 28 28c59.475 0 107.876-48.328 108-107.774.595-34.428 72-48.24 72-144.226 0-97.047-78.953-176-176-176zm-80 236c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM32 448c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm480-187.993c0-1.518-.012-3.025-.045-4.531C510.076 140.525 436.157 38.47 327.994 1.511c-14.633-4.998-30.549 2.809-35.55 17.442-5 14.633 2.81 30.549 17.442 35.55 85.906 29.354 144.61 110.513 146.077 201.953l.003.188c.026 1.118.033 2.236.033 3.363 0 15.464 12.536 28 28 28s28.001-12.536 28.001-28zM152.971 439.029l-80-80L39.03 392.97l80 80 33.941-33.941z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <div className="flex flex-col justify-center items-center">
+                    <div className="grid grid-cols-1 gap-4 pb-16">
+                      <div className="flex flex-col items-center justify-center">
                         <Link href="/">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +205,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                             fill="#fff"
                             width="150"
                             height="150"
-                            className="text-white focus:animate-wiggle hover:animate-wiggle cursor-pointer transition-all focus-visible:scale-110 hover:scale-110"
+                            className="text-white transition-all cursor-pointer focus:animate-wiggle hover:animate-wiggle focus-visible:scale-110 hover:scale-110"
                           >
                             <path d="M96.16,6.73c-.72-1.82-1.72-4.24-4-4.34-2.68-.12-4.33,2.16-5.11,3.68a21.72,21.72,0,0,0-2,12c.46,2.79,3.71,3.39,4.29,5.08s.07,7-.21,8.3c0,0,1.53-2.31,3.86-1.94,0-2.28-.75-4.47-.19-6.74.41-1.65,2.57-2.57,3.62-4.41,1.88-3.31.82-8.68-.34-11.62M92.72,20.54c1.52-2.06,3.94-4.23,3-7.82,0-.25.16-.3.16-.5l.5-.08c.69,3.73-.71,7.07-3.61,8.4" />
                             <path d="M68.21,0c-2.94.42-3.74,9.22-4.1,13.92A113.32,113.32,0,0,0,64,29.79c.14,1.79,1.66,5.17,1.8,6.08,0,0,.65-1.67,3.81-2,.25-2.48.13-18.63.12-26.93,0-2.24.77-7.29-1.49-7m-.12,31.69c-.79.06.35-.54.33-.85.11-1.3-.22-2.95.16-4,.57.92,1.07,4.32-.49,4.88" />
@@ -302,7 +288,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                             }
                             className={`px-2 py-2`}
                           >
-                            <ChevronDoubleLeftIcon className="h-8 w-8 text-white flex md:hidden" />
+                            <ChevronDoubleLeftIcon className="flex w-8 h-8 text-white md:hidden" />
                           </button>
                         </div>
                       </div>
@@ -324,10 +310,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                           leaveFrom="opacity-100"
                           leaveTo="opacity-0"
                         >
-                          <Dialog.Overlay className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                          <Dialog.Overlay className="absolute inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
                         </Transition.Child>
 
-                        <div className="fixed inset-y-0 right-0 max-w-full flex">
+                        <div className="fixed inset-y-0 right-0 flex max-w-full">
                           <Transition.Child
                             as={Fragment}
                             enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -338,23 +324,23 @@ function MyApp({ Component, pageProps }: AppProps) {
                             leaveTo="translate-x-full"
                           >
                             <div className="w-screen">
-                              <div className="h-full flex flex-col bg-white dark:bg-neutral-900 shadow-xl overflow-y-scroll">
-                                <div className="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
+                              <div className="flex flex-col h-full overflow-y-scroll bg-white shadow-xl dark:bg-neutral-900">
+                                <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
                                   <div className="flex items-start justify-between">
                                     <Dialog.Title className="text-lg font-medium text-gray-900 dark:text-gray-100">
                                       Navigation
                                     </Dialog.Title>
-                                    <div className="ml-3 h-7 flex items-center">
+                                    <div className="flex items-center ml-3 h-7">
                                       <button
                                         type="button"
-                                        className="-m-2 p-2 text-gray-400 dark:text-gray-50 dark:hover:text-gray-200 hover:text-gray-500"
+                                        className="p-2 -m-2 text-gray-400 dark:text-gray-50 dark:hover:text-gray-200 hover:text-gray-500"
                                         onClick={() => setShowMenu(false)}
                                       >
                                         <span className="sr-only">
                                           Close panel
                                         </span>
                                         <XIcon
-                                          className="h-6 w-6"
+                                          className="w-6 h-6"
                                           aria-hidden="true"
                                         />
                                       </button>
@@ -410,9 +396,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </Transition.Root>
                   <Component {...pageProps} />
                   <footer id="footer">
-                    <div className="grid grid-cols-2 gap-4 justify-end items-center">
+                    <div className="grid items-center justify-end grid-cols-2 gap-4">
                       <div className="flex justify-end"></div>
-                      <div className="inline-flex justify-end mt-20 md:mt-1 mr-2">
+                      <div className="inline-flex justify-end mt-20 mr-2 md:mt-1">
                         <div className="inline-grid h-8 my-16">
                           <ToggleTheme />
                         </div>
@@ -422,7 +408,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           fill="#fff"
                           width="150"
                           height="150"
-                          className="text-white mt-2 focus:animate-pulse hover:animate-pulse transition-all focus-visible:scale-105 hover:scale-105"
+                          className="mt-2 text-white transition-all focus:animate-pulse hover:animate-pulse focus-visible:scale-105 hover:scale-105"
                         >
                           <path d="M96.16,6.73c-.72-1.82-1.72-4.24-4-4.34-2.68-.12-4.33,2.16-5.11,3.68a21.72,21.72,0,0,0-2,12c.46,2.79,3.71,3.39,4.29,5.08s.07,7-.21,8.3c0,0,1.53-2.31,3.86-1.94,0-2.28-.75-4.47-.19-6.74.41-1.65,2.57-2.57,3.62-4.41,1.88-3.31.82-8.68-.34-11.62M92.72,20.54c1.52-2.06,3.94-4.23,3-7.82,0-.25.16-.3.16-.5l.5-.08c.69,3.73-.71,7.07-3.61,8.4" />
                           <path d="M68.21,0c-2.94.42-3.74,9.22-4.1,13.92A113.32,113.32,0,0,0,64,29.79c.14,1.79,1.66,5.17,1.8,6.08,0,0,.65-1.67,3.81-2,.25-2.48.13-18.63.12-26.93,0-2.24.77-7.29-1.49-7m-.12,31.69c-.79.06.35-.54.33-.85.11-1.3-.22-2.95.16-4,.57.92,1.07,4.32-.49,4.88" />
