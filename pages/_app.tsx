@@ -196,7 +196,10 @@ function MyApp({ Component, pageProps }: AppProps) {
               <ThemeProvider defaultTheme="light" attribute="class">
                 <div className="flex flex-col justify-between h-screen">
                   <div id="start">
-                    <div className="grid grid-cols-1 gap-4 pb-16">
+                    <div className="grid grid-cols-3 gap-4 pb-14">
+                      <div className="p-2 space-y-2">
+                        <ToggleTheme />
+                      </div>
                       <div className="flex flex-col items-center justify-center">
                         <Link href="/">
                           <svg
@@ -245,7 +248,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                             <path d="M102.1,68.69l-.19-1.48,66.17-10.94v.22a1.6,1.6,0,0,1-1.36,1.58Z" />
                           </svg>
                         </Link>
-                        <nav
+                        {/* <nav
                           className="hidden md:flex -mt-5 -rotate-[20deg] sm:-rotate-[10deg] lg:-rotate-[6deg] 2xl:-rotate-[3.8deg] xl:-rotate-[5deg] md:-rotate-[8deg] pb-1"
                           aria-label="Breadcrumb"
                         >
@@ -276,7 +279,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                               </li>
                             ))}
                           </ol>
-                        </nav>
+                        </nav> */}
                       </div>
                       <div
                         className={`flex justify-end items-start md:px-2 md:py-2`}
@@ -398,10 +401,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   <footer id="footer">
                     <div className="grid items-center justify-end grid-cols-2 gap-4">
                       <div className="flex justify-end"></div>
-                      <div className="inline-flex justify-end mt-20 mr-2 md:mt-1">
-                        <div className="inline-grid h-8 my-16">
-                          <ToggleTheme />
-                        </div>
+                      <div className="inline-flex justify-end mt-20 mr-6 md:mt-1">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 173.35 111.2"
