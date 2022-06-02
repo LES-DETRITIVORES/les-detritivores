@@ -2,14 +2,15 @@ import type { NextPage } from "next";
 import React, { useState, useEffect } from "react";
 import useSWR from "swr";
 import Fade from "react-reveal/Fade";
-import Image from "next/image";
 
 import fetcher from "libs/fetcher";
 import { StoryBlok } from "libs/types";
 import { richText } from "libs/storyblok";
 
 import { Icons } from "components/icons";
-import { cn } from "utils/class";
+import Images from "components/card/images";
+import Loading from "components/card/loading";
+import Content from "components/card/content";
 
 const Collecte: NextPage = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -42,96 +43,51 @@ const Collecte: NextPage = () => {
         distance="30px"
       >
         <div className="max-w-screen">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 mx-5 my-2">
+          <div className="grid grid-cols-1 mx-5 my-2 md:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1">
             <div className="flex flex-col space-y-2">
               {data ? (
                 <>
-                  <div>
-                    <div className="!rounded-lg w-80 m-auto md:m-0 sm:m-0">
-                      <Image
-                        width="320"
-                        height="200"
-                        className={cn(
-                          "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
-                          isLoading
-                            ? "scale-110 blur-2xl grayscale"
-                            : "scale-100 blur-0 grayscale-0"
-                        )}
-                        src="/static/images/DETRI_211007_137.jpg"
-                        blurDataURL="/static/images/DETRI_211007_137.jpg"
-                        onLoadingComplete={() => setLoading(false)}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="!rounded-lg w-80 m-auto md:m-0 sm:m-0">
-                      <Image
-                        width="320"
-                        height="200"
-                        className={cn(
-                          "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
-                          isLoading
-                            ? "scale-110 blur-2xl grayscale"
-                            : "scale-100 blur-0 grayscale-0"
-                        )}
-                        src="/static/images/DETRI_211007_336.jpg"
-                        blurDataURL="/static/images/DETRI_211007_336.jpg"
-                        onLoadingComplete={() => setLoading(false)}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="!rounded-lg w-80 m-auto md:m-0 sm:m-0">
-                      <Image
-                        width="320"
-                        height="200"
-                        className={cn(
-                          "duration-700 ease-in-out group-hover:opacity-75 rounded-lg",
-                          isLoading
-                            ? "scale-110 blur-2xl grayscale"
-                            : "scale-100 blur-0 grayscale-0"
-                        )}
-                        src="/static/images/IMG_0099.jpg"
-                        blurDataURL="/static/images/IMG_0099.jpg"
-                        onLoadingComplete={() => setLoading(false)}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="!rounded-lg w-80 m-auto md:m-0 sm:m-0">
-                      <Image
-                        width="320"
-                        height="200"
-                        className={cn(
-                          "duration-700 ease-in-out group-hover:opacity-75 !rounded-lg",
-                          isLoading
-                            ? "scale-110 blur-2xl grayscale !rounded-lg"
-                            : "scale-100 blur-0 grayscale-0 !rounded-lg"
-                        )}
-                        src="/static/images/DETRI_211007_623.jpg"
-                        blurDataURL="/static/images/DETRI_211007_623.jpg"
-                        onLoadingComplete={() => setLoading(false)}
-                      />
-                    </div>
-                  </div>
+                  <Images
+                    isLoading={isLoading}
+                    image="/static/images/DETRI_211007_137.jpg"
+                    width={320}
+                    height={200}
+                    onLoadingComplete={() => setLoading(false)}
+                  />
+                  <Images
+                    isLoading={isLoading}
+                    image="/static/images/DETRI_211007_336.jpg"
+                    width={320}
+                    height={200}
+                    onLoadingComplete={() => setLoading(false)}
+                  />
+                  <Images
+                    isLoading={isLoading}
+                    image="/static/images/IMG_0099.jpg"
+                    width={320}
+                    height={200}
+                    onLoadingComplete={() => setLoading(false)}
+                  />
+                  <Images
+                    isLoading={isLoading}
+                    image="/static/images/DETRI_211007_623.jpg"
+                    width={320}
+                    height={200}
+                    onLoadingComplete={() => setLoading(false)}
+                  />
                 </>
               ) : (
                 <>
-                  <div>
-                    <div className="rounded-lg w-80 bg-greenDTTV" />
-                  </div>
-                  <div>
-                    <div className="rounded-lg w-80 bg-greenDTTV" />
-                  </div>
-                  <div>
-                    <div className="rounded-lg w-80 bg-greenDTTV" />
-                  </div>
-                  <div>
-                    <div className="rounded-lg w-80 bg-greenDTTV" />
-                  </div>
+                  {[...Array(4)].map((_, i) => (
+                    <>
+                      <div>
+                        <div className="rounded-lg w-80 bg-greenDTTV" />
+                      </div>
+                    </>
+                  ))}
                 </>
               )}
-              <span className="inline-flex justify-center 2xl:justify-start xl:justify-start sm:justify-start md:justify-start space-x-2">
+              <span className="inline-flex justify-center space-x-2 2xl:justify-start xl:justify-start sm:justify-start md:justify-start">
                 <Icons
                   icons="photo"
                   className="w-6 h-6 text-black fill-current dark:text-white"
@@ -141,11 +97,11 @@ const Collecte: NextPage = () => {
                 </p>
               </span>
             </div>
-            <div className="flex flex-col space-x-10 justify-between">
+            <div className="flex flex-col justify-between space-x-10">
               {data ? (
                 <>
                   <div className="space-y-4">
-                    <h1 className="text-left pb-2 md:text-6xl text-3xl font-bold text-orangeDTTV -rotate-2">
+                    <h1 className="pb-2 text-3xl font-bold text-left md:text-6xl text-orangeDTTV -rotate-2">
                       COLLECTE
                     </h1>
                     <div className="space-y-4">
@@ -153,32 +109,21 @@ const Collecte: NextPage = () => {
                         {data?.content.collectMiniText}
                       </p>
                       <div className="flex flex-col items-center content-center space-y-2">
-                        <div className="flex space-x-2">
-                          <span className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10">
-                            1
-                          </span>
-                          <p className="text-xl font-light">
-                            {richText(data?.content.collectFirstText)}
-                          </p>
-                        </div>
-                        <div className="flex space-x-2">
-                          <span className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10">
-                            2
-                          </span>
-                          <p className="text-xl font-light">
-                            {richText(data?.content.collectSecondText)}
-                          </p>
-                        </div>
-                        <div className="flex space-x-2">
-                          <span className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10">
-                            3
-                          </span>
-                          <p className="text-xl font-light space-y-2">
-                            {richText(data?.content.collectTreeText)}
-                          </p>
-                        </div>
+                        <Content
+                          number={1}
+                          text={richText(data?.content.collectFirstText)}
+                        />
+                        <Content
+                          number={2}
+                          text={richText(data?.content.collectSecondText)}
+                        />
+                        <Content
+                          number={3}
+                          text={richText(data?.content.collectTreeText)}
+                        />
+
                         <div>
-                          <p className="font-bold text-xl">
+                          <p className="text-xl font-bold">
                             En camions, à vélos ou grâce à l'installation de
                             Bornes d'Apport Volontaire, nos équipes parcourent
                             les rues de Bordeaux et ses alentours pour collecter
@@ -190,32 +135,10 @@ const Collecte: NextPage = () => {
                   </div>
                 </>
               ) : (
-                <div className="space-y-4">
-                  <h1 className="text-left pb-2 md:text-6xl text-3xl font-bold text-orangeDTTV -rotate-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg animate-pulse h-20"></h1>
-                  <div className="space-y-4 bg-neutral-100  dark:bg-neutral-800 rounded-lg animate-pulse">
-                    <p className="text-xl font-bold bg-neutral-100 dark:bg-neutral-800 "></p>
-                    <div className="flex flex-col items-center content-center space-y-2">
-                      <div className="flex space-x-2">
-                        <div className="text-orangeDTTV text-3xl border-b-4 border-orangeDTTV -rotate-3 h-10 animate-pulse bg-neutral-100"></div>
-                        <p className="text-xl font-light bg-neutral-100 dark:bg-neutral-800  h-20"></p>
-                      </div>
-                      <div className="flex space-x-2">
-                        <span className="text-orangeDTTV text-3xl border-b-4 bg-neutral-100  dark:bg-neutral-800 border-orangeDTTV -rotate-3 h-10"></span>
-                        <p className="text-xl font-light bg-neutral-100 dark:bg-neutral-800  animate-pulse"></p>
-                      </div>
-                      <div className="flex space-x-2">
-                        <span className="text-orangeDTTV text-3xl border-b-4 bg-neutral-100 dark:bg-neutral-800  border-orangeDTTV -rotate-3 h-10"></span>
-                        <p className="text-xl font-light space-y-2 bg-neutral-100 dark:bg-neutral-800  animate-pulse"></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-neutral-100 dark:bg-neutral-800 animate-pulse rounded-lg h-40">
-                    <p className="font-bold text-xl bg-neutral-200 dark:bg-neutral-800 "></p>
-                  </div>
-                </div>
+                <Loading />
               )}
             </div>
-            <div className="space-y-2 hidden">
+            <div className="hidden space-y-2">
               <h1 className="text-2xl font-medium text-center ">
                 Où intervenons-nous ?
               </h1>
