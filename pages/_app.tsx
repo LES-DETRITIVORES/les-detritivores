@@ -196,10 +196,10 @@ function MyApp({ Component, pageProps }: AppProps) {
               <ThemeProvider defaultTheme="light" attribute="class">
                 <div className="flex flex-col justify-between h-screen">
                   <div id="start">
-                    <div className="grid grid-cols-3 gap-4 pb-14">
-                      <div className="p-2 space-y-2">
+                    <div className="grid grid-cols-1 gap-4 pb-14">
+                      {/* <div className="p-2 space-y-2">
                         <ToggleTheme />
-                      </div>
+                      </div> */}
                       <div className="flex flex-col items-center justify-center">
                         <Link href="/">
                           <svg
