@@ -1,4 +1,9 @@
-export const Icons = ({ icons, className }) => {
+interface Props {
+  icons: any;
+  className: string;
+}
+
+export const Icons = ({ icons, className }: Props) => {
   switch (icons) {
     case "logo":
       return (
