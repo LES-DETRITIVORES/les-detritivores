@@ -112,9 +112,6 @@ export class Firebase {
   id(): string | undefined {
     return this.user()?.uid;
   }
-  import(url: string) {
-    return this.functions().httpsCallable(url);
-  }
 
   stateChanged(callback: (user: firebase.User | null) => void) {
     const auth = this.auth();
