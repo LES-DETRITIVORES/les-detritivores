@@ -1,4 +1,4 @@
-export const Images = [
+export const images = [
   {
     id: 1,
     width: "width",
