@@ -5,7 +5,6 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 import "firebase/compat/functions";
 import "firebase/compat/analytics";
-import "firebase/compat/performance";
 import "firebase/compat/database";
 import "firebase/messaging";
 
@@ -113,11 +112,6 @@ export class Firebase {
   id(): string | undefined {
     return this.user()?.uid;
   }
-
-  performance() {
-    return firebase.performance();
-  }
-
   import(url: string) {
     return this.functions().httpsCallable(url);
   }
@@ -138,7 +132,7 @@ export class Firebase {
   currentPassword(currentPassword: string) {
     const credential = firebase.auth.EmailAuthProvider.credential(
       this.email() as string,
-      currentPassword
+      currentPassword,
     );
     return this.user()?.reauthenticateWithCredential(credential);
   }
@@ -172,7 +166,7 @@ export class Firebase {
     frequency: string,
     collectTime: string,
     address: string,
-    collection: string
+    collection: string,
   ) {
     return {
       id: this.collection(collection).doc().id,
@@ -189,7 +183,7 @@ export class Firebase {
     password: string,
     collection: string,
     url: string,
-    documentPath?: string | undefined
+    documentPath?: string | undefined,
   ) {
     return await this.sign(email, password).then(async () => {
       await router.push(url);
@@ -296,14 +290,14 @@ export class Firebase {
     collection: string,
     field: string,
     operator: firebase.firestore.WhereFilterOp,
-    value: string
+    value: string,
   ) {
     return this.collection(collection).where(field, operator, value);
   }
   async orderBy(
     collection: string,
     field: string,
-    direction: firebase.firestore.OrderByDirection
+    direction: firebase.firestore.OrderByDirection,
   ) {
     return this.collection(collection).orderBy(field, direction);
   }
@@ -378,7 +372,7 @@ export class Firebase {
   }
   async phoneSignIn(
     phoneNumber: string,
-    verificationCode: firebase.auth.ApplicationVerifier
+    verificationCode: firebase.auth.ApplicationVerifier,
   ) {
     const auth = this.auth();
     await auth.signInWithPhoneNumber(phoneNumber, verificationCode);
