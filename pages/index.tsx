@@ -9,7 +9,7 @@ import Link from "next/link";
 
 import { StoryBlok } from "libs/types";
 import { convert, richText } from "libs/storyblok";
-import { Images } from "data/images";
+import { images } from "data/images";
 
 import Loading from "components/loading";
 import { Icons } from "components/icons";
@@ -151,33 +151,28 @@ const Home: NextPage = () => {
               <div className="w-full h-64 m-0 bg-greenDTTV dark:bg-orangeDTTV">
                 <div className="flex items-center justify-center">
                   <div className="inline-flex my-12 space-x-5 transition-all duration-1000 ease-in-out transform translate-x-0">
-                    {
-                      // TODO: refactor this
-                      new Set(
-                        Images.map((item, index) => {
-                          return (
-                            <div
-                              key={index}
-                              className={`!rounded-md ${item.width} ${item.height}`}
-                            >
-                              <Image
-                                className={cn(
-                                  "duration-700 ease-in-out group-hover:opacity-75 !rounded-md object-contain",
-                                  isLoading
-                                    ? "scale-110 blur-2xl grayscale !rounded-md"
-                                    : "scale-100 blur-0 grayscale-0 !rounded-md",
-                                )}
-                                src={item.image}
-                                width={item.imageWidth}
-                                height={item.imageHeight}
-                                blurDataURL={item.image}
-                                onLoadingComplete={() => setLoading(false)}
-                              />
-                            </div>
-                          );
-                        }),
-                      )
-                    }
+                    {images.map((item, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className={`!rounded-md ${item.width} ${item.height}`}
+                        >
+                          <Image
+                            className={cn(
+                              "duration-700 ease-in-out group-hover:opacity-75 !rounded-md object-contain",
+                              isLoading
+                                ? "scale-110 blur-2xl grayscale !rounded-md"
+                                : "scale-100 blur-0 grayscale-0 !rounded-md",
+                            )}
+                            src={item.image}
+                            width={item.imageWidth}
+                            height={item.imageHeight}
+                            blurDataURL={item.image}
+                            onLoadingComplete={() => setLoading(false)}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
