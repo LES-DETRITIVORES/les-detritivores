@@ -126,21 +126,12 @@ export class Firebase {
     return true;
   }
 
-  currentPassword(currentPassword: string) {
-    const credential = firebase.auth.EmailAuthProvider.credential(
-      this.email() as string,
-      currentPassword,
-    );
-    return this.user()?.reauthenticateWithCredential(credential);
+  logOut() {
+    return this.auth().signOut();
   }
 
-  async updatePassword(currentPassword: string, newPassword: string) {
-    await this.currentPassword(currentPassword)?.then(async () => {
-      return await this.user()?.updatePassword(newPassword);
-    });
-  }
-  async getLogs() {
-    return await this.analytics().logEvent("getLogs");
+  getLogs() {
+    return this.analytics().logEvent("getLogs");
   }
   async snapshot(collection: string, documentPath: string) {
     return await this.collection(collection)
@@ -148,72 +139,13 @@ export class Firebase {
       .then((querySnapshot) => {
         querySnapshot.forEach(async (doc) => {
           if (doc.id === documentPath) {
-            return await doc.data();
+            return doc.data();
           }
         });
       })
       .then((data) => data)
       .catch((error) => console.log("Error getting documents: ", error));
   }
-
-  data(
-    phone: string,
-    name: string,
-    email: string,
-    frequency: string,
-    collectTime: string,
-    address: string,
-    collection: string,
-  ) {
-    return {
-      id: this.collection(collection).doc().id,
-      phone: phone,
-      name: name,
-      email: email,
-      frequency: frequency,
-      collectTime: collectTime,
-      address: address,
-    };
-  }
-  async signIn(
-    email: string,
-    password: string,
-    collection: string,
-    url: string,
-    documentPath?: string | undefined,
-  ) {
-    return await this.sign(email, password).then(async () => {
-      await router.push(url);
-      await this.collection(collection).doc(documentPath).set({
-        name: this.userName(),
-        email: this.email(),
-      });
-    });
-  }
-  async sign(email: string, password: string) {
-    const auth = this.auth();
-    return await auth.signInWithEmailAndPassword(email, password);
-  }
-
-  async emailVerification() {
-    const user = this.user();
-    await user?.sendEmailVerification();
-  }
-
-  async passwordResetEmail(email: string) {
-    const auth = this.auth();
-    await auth.sendPasswordResetEmail(email);
-  }
-  async saveColor(color: Array<string>) {
-    this.collection("colors").doc(this.user()?.uid).set({
-      color: color,
-    });
-  }
-  async logOut() {
-    const auth = this.auth();
-    await auth.signOut();
-  }
-
   async update(collection: string, documentPath: string, data: any) {
     const collectionRef = this.collection(collection);
     const documentRef = collectionRef.doc(documentPath);
@@ -248,30 +180,6 @@ export class Firebase {
     return await collectionRef.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         data.push(doc.data() as never);
-      });
-      return data;
-    });
-  }
-
-  async getAllDataWithId(collection: string, data: []) {
-    const collectionRef = this.collection(collection);
-    return await collectionRef.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() } as never);
-      });
-      return data;
-    });
-  }
-
-  async getAllDataWithIdAndName(collection: string, data: []) {
-    const collectionRef = this.collection(collection);
-    return await collectionRef.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        data.push({
-          id: doc.id,
-          name: doc.data().name,
-          ...doc.data(),
-        } as never);
       });
       return data;
     });
@@ -328,17 +236,6 @@ export class Firebase {
     await user?.updatePassword(password);
   }
 
-  async signUp(email: string, password: string) {
-    const auth = this.auth();
-    await auth.createUserWithEmailAndPassword(email, password);
-  }
-
-  async signWithGithub() {
-    const auth = this.auth();
-    const provider = new firebase.auth.GithubAuthProvider();
-    return await auth.signInWithPopup(provider);
-  }
-
   async signWith(sign: string) {
     const auth = this.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -355,28 +252,9 @@ export class Firebase {
         await auth.signInWithRedirect(provider);
         await firebase.auth().getRedirectResult();
         break;
-      case "withGithub":
-        await this.signWithGithub();
-        await firebase.auth().getRedirectResult();
-        break;
 
       default:
         break;
     }
-  }
-  async interceptor(url: string, callback: (error: any) => void) {
-    return await this.functions().httpsCallable(url).call(callback);
-  }
-  async phoneSignIn(
-    phoneNumber: string,
-    verificationCode: firebase.auth.ApplicationVerifier,
-  ) {
-    const auth = this.auth();
-    await auth.signInWithPhoneNumber(phoneNumber, verificationCode);
-  }
-
-  async signOut() {
-    const auth = this.auth();
-    await auth.signOut();
   }
 }
