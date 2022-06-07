@@ -1,14 +1,23 @@
 import firebase from "firebase/compat/app";
-import router from "next/router";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
 import "firebase/compat/functions";
-import "firebase/compat/analytics";
 import "firebase/compat/database";
-import "firebase/messaging";
-
 export class Firebase {
+  private whereFilterOp = new Set([
+    "<",
+    "<=",
+    "==",
+    "!=",
+    ">=",
+    ">",
+    "array-contains",
+    "in",
+    "array-contains-any",
+    "not-in",
+  ]);
+
   settings() {
     return {
       apiKey: "AIzaSyAeuEJ6aYJRE1JHzRJgabAAF95MzAGmPic",
@@ -22,6 +31,7 @@ export class Firebase {
   }
   constructor() {
     firebase.initializeApp(this.settings());
+    this.whereFilterOp;
     console.log(`Initialize Firebase ${firebase.apps.length} app`);
   }
 
@@ -72,20 +82,12 @@ export class Firebase {
     return firebase.auth();
   }
 
-  messaging() {
-    return firebase.messaging();
-  }
-
   firebase() {
     return firebase;
   }
 
   database() {
     return firebase.database();
-  }
-
-  analytics() {
-    return firebase.analytics();
   }
 
   functions() {
@@ -130,9 +132,6 @@ export class Firebase {
     return this.auth().signOut();
   }
 
-  getLogs() {
-    return this.analytics().logEvent("getLogs");
-  }
   async snapshot(collection: string, documentPath: string) {
     return await this.collection(collection)
       .get()
