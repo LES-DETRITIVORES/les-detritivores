@@ -9,13 +9,13 @@ html {
   @apply overflow-x-hidden select-none;
 }
 body {
-  @apply bg-white dark:bg-neutral-900 overflow-x-hidden transition w-screen font-fira font-normal;
+  @apply w-screen overflow-x-hidden font-normal transition bg-white dark:bg-neutral-900 font-fira;
 }
 p {
-  @apply font-sf-ui antialiased;
+  @apply antialiased font-sf-ui;
 }
 span {
-  @apply text-xl font-bold font-sf-ui antialiased;
+  @apply text-xl antialiased font-bold font-sf-ui;
 }
 h1 {
   font-family: "Fira Sans", sans-serif;
@@ -23,18 +23,6 @@ h1 {
 h1:after,
 h1:before {
   @apply block m-0 content;
-}
-.jRFJkP,
-.cNNJIt,
-.lcUbOd,
-.fVgyLU,
-.fViXLK,
-.bBjxWM {
-  @apply !hidden !shadow-none;
-}
-.eaptOe,
-.gpDNSX {
-  @apply !shadow-none;
 }
 ::-webkit-scrollbar {
   @apply !hidden;
@@ -55,10 +43,10 @@ h1:before {
   @apply !hidden;
 }
 .fancy {
-  @apply w-20 border-solid border-t-4;
+  @apply w-20 border-t-4 border-solid;
 }
 .fancy-title {
-  @apply w-16 md:w-24 border-solid border-t-4;
+  @apply w-16 border-t-4 border-solid md:w-24;
 }
 img {
   @apply transition duration-300;
@@ -75,7 +63,7 @@ img {
 }
 
 #footer {
-  @apply bg-greenDTTV bg-gradient-to-r from-greenDTTV to-greenDTTV dark:bg-gradient-to-r dark:from-orangeDTTV dark:to-orangeDTTV md:w-auto border-t-0 text-white;
+  @apply text-white border-t-0 bg-greenDTTV bg-gradient-to-r from-greenDTTV to-greenDTTV dark:bg-gradient-to-r dark:from-orangeDTTV dark:to-orangeDTTV md:w-auto;
   -webkit-clip-path: polygon(100% 3%, 0 100%, 100% 100%);
   clip-path: polygon(100% 3%, 0 100%, 100% 100%);
 }
@@ -92,24 +80,6 @@ img {
   @apply !border-l-white !border-t-white;
 }
 
-.slider {
-  @apply flex;
-}
-
-.slider::before,
-.slider::after {
-  @apply absolute z-10 content;
-}
-.slider::after {
-  @apply right-0 top-0 rotate-180;
-}
-
-.slider::before {
-  @apply left-0 top-0;
-}
-.slide-track {
-  @apply animate-scroll flex justify-center space-x-2 items-center max-h-36 max-w-max;
-}
 .width-pessac {
   @apply !w-screen;
 }
@@ -123,7 +93,7 @@ label {
   @apply font-light;
 }
 button:disabled {
-  @apply cursor-not-allowed animate-bounce transition;
+  @apply transition cursor-not-allowed animate-bounce;
 }
 @tailwind base;
 @tailwind components;
